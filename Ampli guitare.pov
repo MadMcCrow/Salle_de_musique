@@ -25,7 +25,7 @@ light_source {
               color White
               }
 light_source {
-              <80,52,13.5>
+              <25,10,-52>
               color White
               }
 
@@ -47,15 +47,19 @@ light_source {
 #declare Bouton_repere2 = cylinder {<0,0,0> <0,1,0> 0.1 rotate <90,50,0>}
 
 
-    //Grille de l'ampli
+        //Grille de l'ampli
 #declare Grille = box {<0,0,0> <48,40,0.1> }
   
 #declare Coussinet_l = cylinder {<0,0,0> <0,27,0> 1 rotate <90,0,0>}
 #declare Coussinet_L = cylinder {<0,0,0> <50,0,0> 1 rotate <90,0,0>}
 
-//Objets invisibles qui vont permettrent de  créer les creux/relief...
+        //Objets invisibles qui vont permettrent de  créer les creux/relief...
 #declare V_Grille = box {<0,0,0> <48,40,2> }
-#declare V_Boutons = box {<0,0,0> <48,3,6>  }
+#declare V_Boutons = box {<0,0,0> <48,3,6>  } 
+
+        //Texte
+#declare Text =  text {ttf "timrom.ttf" "ProutAmp 66" 0.5, 0
+scale 3  }
 
 
 
@@ -63,7 +67,7 @@ light_source {
 
 //TEXTURES: couleurs de l'objet, réflection... etc
 #declare Gris = pigment {rgbf < 0.1,0.1,0.1> }
-#declare Gris_metal = texture {pigment {rgbf < 0.5,0.5,0.5> } finish {ambient 0.1 diffuse 0.9 phong 1 }   }
+#declare Gris_metal = texture {pigment {rgbf < 0.3,0.3,0.3> } finish {ambient 0.1 diffuse 0.9 phong 1 }   }
 #declare texture_Grille = pigment {
                             pavement
                                 number_of_sides 4  number_of_tiles 1  pattern 1 
@@ -105,7 +109,9 @@ light_source {
                 object {Bouton_repere1 translate <46,44.5,24> texture {Blanc}  }
                 object {Bouton_repere2 translate <42,44.5,24> texture {Blanc} }
                 
-                object {Grille translate <2,2,1.5> texture {texture_Grille2} }
+                object {Grille translate <2,2,1.5> texture {texture_Grille2} } 
+                
+                object {Text translate <4,38,1.2> texture {Cuir} }
                 
                              
 
