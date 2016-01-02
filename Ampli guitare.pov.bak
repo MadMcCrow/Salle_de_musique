@@ -3,16 +3,73 @@
 #include "shapes.inc"
 #include "metals.inc"
 #include "glass.inc"
-#include "woods.inc"
+#include "woods.inc" 
 
+//POINT DE VUE
 camera {
-        location <0,0,-10>
-        look_at <0,0,0>
+        location <50,50,-50>
+        look_at <26,22,18.5>
         }
-        
+           
+           
+      
+      
+           
+//LUMIERES      
 light_source {
-              <10,10,-10>
+              <0,1000,-100>
               color White
               }
-              
-sphere {<0,0,0>, 0.5 texture { pigment { Green} } }
+
+             
+                                             
+//MATERIAUX
+#declare Corps_principal = box {<0,0,0> <52,44,27>  }
+#declare V_Grille = box {<0,0,0> <48,40,2> }
+#declare Grille = box {<0,0,0> <48,40,2>  }
+#declare V_Boutons = box {<0,0,0> <48,6,6>  }
+#declare Boutons = box {<0,0,0> <48,6,6> }
+#declare Coussinet_l = cylinder {<0,0,0> <0,27,0> 1 rotate <90,0,0>}
+#declare Coussinet_L = cylinder {<0,0,0> <50,0,0> 1 rotate <90,0,0>}
+
+
+
+
+//TEXTURES
+#declare Gris = pigment{Grey}
+#declare Vide = pigment { White transmit 1}
+#declare texture_Grille = pigment {Green} 
+
+                                   
+                                    
+                  
+
+//ASSEMBLAGE
+#declare Test =
+                
+                difference {
+                            object {Corps_principal texture {Gris} }
+                            object {V_Grille translate <2,2,0> texture {Vide} }
+                            object {V_Boutons translate <2,38,21> texture {Vide} }
+                             
+                            }
+                union {     
+                            object {Corps_principal texture {Gris} }
+                            object {Grille translate <2,2,2> texture {texture_Grille} }
+                            object {Boutons translate <2,38,21> texture {Gris} }
+                            object {Coussinet_l translate <1,44,0> texture {Gris} }
+                            object {Coussinet_l translate <51,44,0> texture {Gris} }
+                            object {Coussinet_L translate <1,44,0> texture {Gris} }
+                    
+                            
+                            } 
+
+//MIS EN PLACE
+object { Test }
+       
+
+
+
+
+
+           
