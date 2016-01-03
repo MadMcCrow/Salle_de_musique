@@ -58,7 +58,7 @@ light_source {
 #declare V_Boutons = box {<0,0,0> <48,3,6>  } 
 
         //Texte
-#declare Text =  text {ttf "timrom.ttf" "ProutAmp 66" 0.5, 0
+#declare Text =  text {ttf "timrom.ttf" "Amp 66" 0.5, 0
 scale 3  }
 
 
@@ -66,19 +66,11 @@ scale 3  }
 
 
 //TEXTURES: couleurs de l'objet, réflection... etc
-#declare Gris = pigment {rgbf < 0.1,0.1,0.1> }
-#declare Gris_metal = texture {pigment {rgbf < 0.3,0.3,0.3> } finish {ambient 0.1 diffuse 0.9 phong 1 }   }
-#declare texture_Grille = pigment {
-                            pavement
-                                number_of_sides 4  number_of_tiles 1  pattern 1 
-                                exterior 0  interior 0  form 1  
-#declare Cuir = pigment {rgbf <0.5,0.35,0.1>}
-   
- }
-#declare texture_Grille2 = pigment{ checker //2 couleurs/textures
-         color White
-         color Black
-         scale 0.3 } 
+#declare Gris = pigment {rgbf < 0.5,0.5,0.5> }  
+#declare Ampli_peau =texture { pigment {rgbf < 0.05,0.05,0.05> }   normal { marble 1.5 scale 0.8 turbulence 1.0}}
+#declare Gris_metal = texture {pigment {rgbf < 0.3,0.3,0.3> } finish {ambient 0.1 diffuse 0.9 phong 1 }   } 
+#declare Cuir = texture { pigment {rgbf <0.5,0.35,0.1>} normal { bozo 3.00 scale 0.1} }
+#declare texture_Grille2 = pigment{ checker color White color Black scale 0.2 } 
 #declare Blanc = pigment {White}
 
                                    
@@ -89,10 +81,10 @@ scale 3  }
 #declare Ampli =
                 
                 difference {
-                            object {Corps_ampli texture {Gris} }
+                            object {Corps_ampli texture {Ampli_peau} }
                             
-                            object {V_Grille translate <2,2,-0.0000001> texture {Gris} }
-                            object {V_Boutons translate <2,41.0001,21.0001> texture {Gris} } 
+                            object {V_Grille translate <2,2,-0.0000001> texture {Ampli_peau} }
+                            object {V_Boutons translate <2,41.0001,21.0001> texture {Ampli_peau} } 
                              
                             }
                 union {
