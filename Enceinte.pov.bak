@@ -33,7 +33,7 @@ light_source {
                                              
 //MATERIAUX 
               
-        //Objets de base               
+//Objets de base               
 #declare Corps_ampli = Round_Box (<0,0,0> <52,44,27>, 1, 0  )
 
        //Poignet de l'ampli
