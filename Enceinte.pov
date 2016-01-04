@@ -83,7 +83,7 @@ light_source {
 //MIS EN PLACE
 object { Enceinte } 
 
-// Sol rouge
+// Sol 
 plane {y, -1 pigment {Gray50}}
        
 

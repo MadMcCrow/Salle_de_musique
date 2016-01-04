@@ -1,0 +1,84 @@
+#include "colors.inc"
+#include "textures.inc"
+#include "shapes.inc"
+#include "metals.inc"
+#include "glass.inc"
+#include "woods.inc" 
+
+//POINT DE VUE
+camera {
+        location <0,30,50>
+        look_at <0,10,0>
+        }
+           
+           
+      
+      
+           
+//LUMIERES      
+light_source {
+              <0,1000,-100>
+              color White
+              }
+light_source {
+              <0,1000,1000>
+              color White
+              }
+light_source {
+              <25,10,-52>
+              color White
+              }
+
+             
+                                             
+//MATERIAUX 
+              
+        //Objets de base               
+#declare Cone_base = object{ Round_Cone( <0,0,0>,0.5, <0,2,0>, 0.1, 0.05, 0) scale <10,10,10> }
+#declare Cone_enceinte = object{ Round_Cone( <0,0,0>,0.5, <0,0.5,0>, 0.1, 0.05, 0) scale <10,10,10> rotate <0,0,70>}
+#declare Boule = object { sphere {<0,0,0>, 1} }
+
+        //Assemblage du lien de boule
+#declare Boule_lien =  object {Boule}                 <
+                       object {Boule translate <0,22,0 pigment { White } }
+                       //object {Boule translate <0,22,0> pigment { White } }
+                                                                                             
+
+        //Objets invisibles qui vont permettrent de  créer les creux/relief...
+
+
+
+
+
+
+//TEXTURES: couleurs de l'objet, réflection... etc
+
+                                   
+                                    
+                  
+
+//ASSEMBLAGE DE L'ENCEINTE
+#declare Enceinte_table = 
+                               object { Cone_base texture { pigment { White } } }
+                               object { Cone_enceinte translate <11,22,0> texture { pigment { White } } } 
+                               
+                               //Mise en place de lien de boule entre les deux parties
+                               
+                               object { Boule_lien translate <0,20.5,0> texture {pigment { White } } }
+                    
+          
+                    
+                     
+
+//MIS EN PLACE
+object { Enceinte_table } 
+
+// Sol 
+plane {y, -1 pigment {Gray50}}
+       
+
+
+
+
+
+           
