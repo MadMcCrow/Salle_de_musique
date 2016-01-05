@@ -37,6 +37,7 @@ light_source {
 
 
 //TEXTURES: couleurs de l'objet, réflection... etc
+
 #declare T_Corps = texture { pigment {DMFWood4} finish {ambient 0.1 phong 1 diffuse 0.9 } }
 #declare T_Corps_contours = texture { pigment { rgb <0.01,0.01,0.01> } finish {ambient 0.1 phong 1 diffuse 0.6 } normal { facets size 0.04 } }
 #declare T_Manche = texture { pigment {DMFWood5} finish {ambient 0.1 phong 1 diffuse 0.9 } }
@@ -48,9 +49,11 @@ light_source {
         //Objets de base
         
             //Corps               
-#declare  Corps_guitare = object { Round_Cone3( <0,20>,16.25, <0,38,0>, 12.25, 0) }
-#declare Chevalet = object { Round_Box (<0,0,0>,<10,4,2>, 0.125, 0) }
+#declare Corps_guitare = object { Round_Cone3( <0,20>,16.25, <0,38,0>, 12.25, 0) }
+#declare Chevalet = object { Round_Box (<0,0,0>,<10,2,2>, 0.125, 0) }
 #declare Mini_chevalet = object { Round_Box (<0,0,0>,<10,4,10>, 0.125, 0) scale 0.3 }
+#declare Bouton_guitare1 = object { cylinder {<0,0,0> <0,2,0> 1 rotate <90,0,0> } }
+#declare Bouton_guitare2 = object { cylinder {<0,0,0> <0,2,0> 1.5 rotate <90,0,0> } } 
  
             //Manche
 #declare Manche_Corps = object { Round_Box (<0,0,0>,<5,45,3>, 0.125, 0) }
@@ -170,11 +173,11 @@ light_source {
                     object { V_Silhouette translate <-21,28,-10> texture { T_Corps_contours } }
                     object { V_Silhouette translate <21,28,-10> texture { T_Corps_contours } }
                               
-                    scale 1.02 translate <0,-0.4,1>}
+                    scale 1.02 translate <0,-0.55,1>}
                      
                     //Manche,tete... 
                      
-                    object { Chevalet translate <-5,10,-4> texture { T_Manche } }
+                    object { Chevalet translate <-5,11,-4> texture { T_Manche } }
                     object { Mini_chevalet translate <-1.6,11.5,-4.5> texture { T_Manche } scale <2,0,0> }
                     object { Manche translate <-2.5,40,-4> texture { T_Manche } scale <0.9,0,0> }
                     
@@ -182,8 +185,12 @@ light_source {
                         object { Tete translate <-3.725,83,-4.5> texture { T_Corps } } 
                         
                         object { V_tete translate <-0.25,96,-6> texture { T_Corps } }
-                    translate <0,0,0.5> }            }
+                    translate <0,0,0.5> }  
+                     
+                    object { Bouton_guitare1 translate <10,10,-4> texture {T_Corps_contours} }
                     
+                    object { Bouton_guitare1 translate <12,15,-4> texture {T_Corps_contours} }
+                    }
                     
 //MIS EN PLACE
 object { object {Guitare} }  
