@@ -82,7 +82,7 @@ light_source {
                 difference {
                             object {Corps_ampli texture {Ampli_peau} }
                             
-                            object {V_Grille translate <2,2,-0.0000001> texture {Ampli_peau} }
+                            object {V_Grille translate <2,2,-0.0001> texture {Ampli_peau} }
                             object {V_Boutons translate <2,41.0001,21.0001> texture {Ampli_peau} } 
                              
                             }

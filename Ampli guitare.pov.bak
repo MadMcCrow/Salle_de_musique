@@ -109,7 +109,7 @@ light_source {
 //MIS EN PLACE
 object { Ampli } 
 
-// Sol rouge
+// Sol
 plane {y, -1 pigment {Gray50}}
        
 
