@@ -113,24 +113,40 @@ light_source {
                         object {Marquage translate <2.5,34.75,0> }
                         object {Marquage translate <2.5,22.75,0> }
                         
-                        object {Corde translate <0.4,-28,0>}
-                        object {Corde translate <1.2,-28,0>}
-                        object {Corde translate <2,-28,0>}
-                        object {Corde translate <2.8,-28,0>}
-                        object {Corde translate <3.6,-28,0>}
-                        object {Corde translate <4.4,-28,0>}
-                         
+                       //Boucle pour modeliser les cordes 
+                        union{ 
+                         #local Nr = 0;
+                         #local EndNr = 6;
+                         #while (Nr< EndNr) 
+                         object {Corde translate<0.4+Nr*0.8,-28,0>} 
+                         #local Nr = Nr + 1;
+                         #end
+                         }                       
                         }
                         
  #declare Tete = union {
-                        object {Tete_guitare}
-                        object {Bidule_quon_tourne translate <1,2.5,-1>}
-                        object {Bidule_quon_tourne translate <1,4.5,-1>}
-                        object {Bidule_quon_tourne translate <1,6.5,-1>}
-                        object {Bidule_quon_tourne translate <6,2.5,-1>}
-                        object {Bidule_quon_tourne translate <6,4.5,-1>}
-                        object {Bidule_quon_tourne translate <6,6.5,-1>}
+                        object {Tete_guitare} 
                         
+                        //bouce                        
+                         union{ 
+                         #local Nr = 0;
+                         #local EndNr = 3;
+                         #while (Nr< EndNr) 
+                         object {Bidule_quon_tourne translate<1,2.5+Nr*2,-1>} 
+                         #local Nr = Nr + 1;
+                         #end
+                         }
+                         
+                          union{ 
+                         #local Nr = 0;
+                         #local EndNr = 3;
+                         #while (Nr< EndNr) 
+                         object {Bidule_quon_tourne translate<6,2.5+Nr*2,-1>} 
+                         #local Nr = Nr + 1;
+                         #end
+                         } 
+                          
+                          
                         
                         object {Chevalet_tete translate <1.25,-1,-0.25> texture { T_Manche }  }
                         

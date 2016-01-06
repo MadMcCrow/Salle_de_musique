@@ -37,10 +37,10 @@ location  <0.0 , 60.0 ,-0.001>
 right     x*image_width/image_height
 look_at   <0.0 , 1.0 , 0.0>
 }
-camera {Camera_3 translate <40.0 ,0.0 , 0.0>  }
+camera {Camera_0 translate <40.0 ,0.0 , 0.0>  }
 // sun ---------------------------------------------------------------------
 light_source {<-1500,2500,-2500> color White }
-light_source {<1500,0,-2500> color White }
+//light_source {<1500,0,-2500> color White }
 // sky ---------------------------------------------------------------------
 sky_sphere { pigment { gradient <0,1,0>
                        color_map { [0.00 rgb <1.0,1.0,1.0>]
@@ -259,7 +259,7 @@ difference
                 rotate<-90,-90,0> //turns prism in x direction! Don't change this line!
                 //setting to the right size
                 scale <Xbox*0.95 ,Ybox*0.95 ,(Zbox*0.5)*0.95 >
-                translate <0,0,Zbox/2>
+                translate <Xbox*0.025,0,Zbox/2>
             }
         } //close object {prism}
 
@@ -268,12 +268,22 @@ difference
 
 
     }//close merge
-    object {KEY_cutout translate <8.5,Ybox*0.60, -2.10>}
+    object {KEY_cutout translate <8.4999999,Ybox*0.60+0.00000001, -2.10>}
 } //close difference
 //remise au centre
 translate <0,0,-Zbox/2>
 texture {PCB_NOIR }
-} //close object
+} //close object   
+
+
+
+
+cylinder { <-1,0,0>,<1,0,0>, 0.30
+                 
+                   } // end of texture
+           scale <10,10,10> rotate<0,0,0> translate<0,0,0>
+         } // end of cylinder  ------------------------------------
+
 //---------------------------------------------------------
 
 //--------------------------------------------------------------------------
@@ -282,7 +292,7 @@ texture {PCB_NOIR }
 
 
 //object {KEYS translate <0,-0.50, 2.0> }
-object {body translate <0,0.00, 0.00> }
+//object {body translate <0,0.00, 0.00> }
 
 
 
