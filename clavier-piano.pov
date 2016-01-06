@@ -280,7 +280,7 @@ texture {PCB_NOIR }
 
 cylinder { <-1,0,0>,<1,0,0>, 0.30
                  
-                   } // end of texture
+                    // end of texture
            scale <10,10,10> rotate<0,0,0> translate<0,0,0>
          } // end of cylinder  ------------------------------------
 
