@@ -1,0 +1,88 @@
+#include "colors.inc"
+#include "textures.inc"
+#include "shapes.inc"
+#include "metals.inc"
+#include "glass.inc"
+#include "woods.inc"
+ 
+
+//POINT DE VUE
+camera {
+        location <0,60,-150>
+        look_at <0,30,0>
+        }
+           
+           
+      
+      
+           
+//LUMIERES      
+light_source {
+              <0,1000,-100>
+              color White
+              }
+              
+              
+
+//TEXTURES: couleurs de l'objet, réflection... etc
+             
+#declare T_Ecran_corps = texture { pigment { Red } }
+#declare T_Ecran_surface = texture { pigment { Black } }
+                                             
+//MATERIAUX 
+              
+        //Objets de base               
+
+#declare Ecran_corps = object { Round_Box ( <0,0,0> <62,49,0> 3,0 ) texture { T_Ecran_corps } }
+#declare Ecran_surface = object { Round_Box ( <0,0,0> <62,39,0> 3,0 ) texture { T_Ecran_surface } translate <0,10,0> }       
+         
+
+
+        //Objets invisibles qui vont permettrent de  créer les creux/relief...
+
+#declare V_Ecran_corps = object { box { <0,0,0> <65,52,10> } texture { T_Ecran_corps } }
+#declare V_Ecran_surface = object { box { <0,0,0> <65,10,4.5> } texture { T_Ecran_corps } }
+
+
+
+
+
+
+                                   
+                                    
+                  
+
+//ASSEMBLAGE DE L'IMAC 
+
+#declare Ecran = union {
+                        difference {
+                                    object { Ecran_corps                                       }
+                                    object { V_Ecran_corps   translate <-1.51,-1.51,-9.4999999> }
+                                    }
+                                    
+                        difference { 
+                                    object { Ecran_surface   translate <0,0,0>           }
+                                    object { V_Ecran_corps   translate <0,0,-9.5> texture { T_Ecran_surface }   }
+                                    object { V_Ecran_surface translate <0,0,-3.000001>   }
+                                    }                                        
+                        }            
+                        
+
+#declare Imac = union {
+                        object { Ecran }
+                      }
+                
+                             
+
+//MIS EN PLACE
+object { Imac } 
+
+// Sol
+plane {y, -1 pigment {Gray50}}
+       
+
+
+
+
+
+           
