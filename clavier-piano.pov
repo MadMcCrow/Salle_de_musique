@@ -37,7 +37,7 @@ location  <0.0 , 60.0 ,-0.001>
 right     x*image_width/image_height
 look_at   <0.0 , 1.0 , 0.0>
 }
-camera {Camera_0 translate <40.0 ,0.0 , 0.0>  }
+camera {Camera_3 translate <40.0 ,0.0 , 0.0>  }
 // sun ---------------------------------------------------------------------
 light_source {<-1500,2500,-2500> color White }
 //light_source {<1500,0,-2500> color White }
@@ -226,17 +226,18 @@ translate <9,5,-10>
 //---------------------------------------------------------
 //corps de clavier 66 x 8,3 x 18,4 cm
 //---------------------------------------------------------
+#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 2.0 scale <1.0,1.0,1.0> translate <5,5,-5>}}
+#declare molette_hole = object {cylinder { <-1,0,0>,<1,0,0>, 2.0 scale <1.1,1.1,1.1> translate <5,5,-5>}}
 
-
-#declare KEY_cutout1 = box { <0,0,0>,< 52.7, 50.00, 17>  }
+#declare KEY_cutout = box { <0,0,0>,< 52.7, 50.00, 17>  }
 #declare KEY_cutout2 = box { <0,0,1>,< 52.7, 50.00, 16>  }
-#declare KEY_cutout = object
+/*#declare KEY_cutout = object
 {
     merge{
         object {KEY_cutout1 }
         object {KEY_cutout2 }
     }
-}
+}*/
 // main box of the keyboard
 // linear prism in x-direction: from ... to ..., number of points (first = last)
 #declare body = object{
@@ -268,23 +269,26 @@ difference
 
 
     }//close merge
-    object {KEY_cutout translate <8.4999999,Ybox*0.60+0.00000001, -2.10>}
+    object {KEY_cutout translate <8.4999999,Ybox*0.60+0.00000001, -2.10>} //random errors if not move by a small distance...
+    object { molette_hole translate <0,0,0>}
+    //object { molette_hole translate <0,0,0>}
 } //close difference
 //remise au centre
 translate <0,0,-Zbox/2>
 texture {PCB_NOIR }
 } //close object   
 
-
-
-
-cylinder { <-1,0,0>,<1,0,0>, 0.30
-                 
-                    // end of texture
-           scale <10,10,10> rotate<0,0,0> translate<0,0,0>
-         } // end of cylinder  ------------------------------------
-
 //---------------------------------------------------------
+
+#declare midi_keyboard = object{
+union {
+object{body}
+object{KEYS translate <0,-0.50, 2.0>}
+object{molette} 
+}
+}
+
+
 
 //--------------------------------------------------------------------------
 //---------------------------- objects in scene ----------------------------
@@ -292,7 +296,7 @@ cylinder { <-1,0,0>,<1,0,0>, 0.30
 
 
 //object {KEYS translate <0,-0.50, 2.0> }
-//object {body translate <0,0.00, 0.00> }
+object {midi_keyboard translate <0,0.00, 0.00> }
 
 
 
