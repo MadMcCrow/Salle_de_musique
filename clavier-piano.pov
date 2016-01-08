@@ -226,18 +226,11 @@ translate <9,5,-10>
 //---------------------------------------------------------
 //corps de clavier 66 x 8,3 x 18,4 cm
 //---------------------------------------------------------
-#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 2.0 scale <1.0,1.0,1.0> translate <5,5,-5>}}
-#declare molette_hole = object {cylinder { <-1,0,0>,<1,0,0>, 2.0 scale <1.1,1.1,1.1> translate <5,5,-5>}}
+#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 4.0 scale <1.0,1.0,1.0> translate <5,5,3>}}
+#declare molette_hole = object {molette scale <1.1,1.1,1.1>}
 
 #declare KEY_cutout = box { <0,0,0>,< 52.7, 50.00, 17>  }
-#declare KEY_cutout2 = box { <0,0,1>,< 52.7, 50.00, 16>  }
-/*#declare KEY_cutout = object
-{
-    merge{
-        object {KEY_cutout1 }
-        object {KEY_cutout2 }
-    }
-}*/
+
 // main box of the keyboard
 // linear prism in x-direction: from ... to ..., number of points (first = last)
 #declare body = object{
@@ -265,12 +258,12 @@ difference
         } //close object {prism}
 
         //superior box
-        object {Round_Box ( <0,0,0> , < Xbox,Ybox*0.16,Zbox >  , 0.30, 0)   rotate <-1*degrees(atan((Ybox/3)/Zbox)),0,0> translate <0,Ybox*0.60,0> }
+        object {Round_Box ( <0,0,0> , < Xbox,Ybox*0.16,Zbox >  , 0.80, 0)   rotate <-1*degrees(atan((Ybox/3)/Zbox)),0,0> translate <0,Ybox*0.60,0> }
 
 
     }//close merge
-    object {KEY_cutout translate <8.4999999,Ybox*0.60+0.00000001, -2.10>} //random errors if not move by a small distance...
-    object { molette_hole translate <0,0,0>}
+    object {KEY_cutout translate <8.5,Ybox*0.60, -2.10>}
+    object { molette_hole translate <0,0,Zbox/2>}
     //object { molette_hole translate <0,0,0>}
 } //close difference
 //remise au centre
@@ -283,8 +276,8 @@ texture {PCB_NOIR }
 #declare midi_keyboard = object{
 union {
 object{body}
-object{KEYS translate <0,-0.50, 2.0>}
-object{molette} 
+object{molette texture {PCB_NOIR }}
+object{KEYS translate <0,-0.50, 2.0>} 
 }
 }
 
