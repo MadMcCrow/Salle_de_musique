@@ -226,8 +226,8 @@ translate <9,5,-10>
 //---------------------------------------------------------
 //corps de clavier 66 x 8,3 x 18,4 cm
 //---------------------------------------------------------
-#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 4.0 scale <1.0,1.0,1.0> translate <5,5,3>}}
-#declare molette_hole = object {molette scale <1.1,1.1,1.1>}
+#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 4.0 scale <0.60,0.80,0.80> }}
+#declare molette_hole = object {molette scale <1.2,1.1,1.1>}
 
 #declare KEY_cutout = box { <0,0,0>,< 52.7, 50.00, 17>  }
 
@@ -263,7 +263,8 @@ difference
 
     }//close merge
     object {KEY_cutout translate <8.5,Ybox*0.60, -2.10>}
-    object { molette_hole translate <0,0,Zbox/2>}
+    object { molette_hole translate <6.5,5.8,(Zbox/2)+1>}
+    object { molette_hole translate <4.0,5.8,(Zbox/2)+1>}
     //object { molette_hole translate <0,0,0>}
 } //close difference
 //remise au centre
@@ -276,8 +277,18 @@ texture {PCB_NOIR }
 #declare midi_keyboard = object{
 union {
 object{body}
-object{molette texture {PCB_NOIR }}
-object{KEYS translate <0,-0.50, 2.0>} 
+object{molette texture {PCB_NOIR } translate <6.5,5.8,1>}
+object{molette texture {PCB_NOIR } translate <4.0,5.8,1>}
+object{KEYS translate <0,-0.50, 2.0>}
+text { ttf "arial.ttf", "KONAR", 0.2, 0.0 // thickness, offset
+
+       texture{ PCB_BLANC}
+       rotate <90-(degrees(atan((8.3/3)/18.4))),0,0> 
+       scale<1,1.25,1>*1.7
+       translate<7,8.90,6.5 >
+       
+      }  
+ 
 }
 }
 
@@ -292,8 +303,7 @@ object{KEYS translate <0,-0.50, 2.0>}
 object {midi_keyboard translate <0,0.00, 0.00> }
 
 
-
-
+                   
 
 
 
