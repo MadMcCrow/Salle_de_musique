@@ -37,17 +37,10 @@ location  <0.0 , 60.0 ,-0.001>
 right     x*image_width/image_height
 look_at   <0.0 , 1.0 , 0.0>
 }
-<<<<<<< HEAD
-camera {Camera_0 translate <40.0 ,0.0 , 0.0>  }
-// sun ---------------------------------------------------------------------
-light_source {<-1500,2500,-2500> color White }
-//light_source {<1500,0,-2500> color White }
-=======
 camera {Camera_3 translate <40.0 ,0.0 , 0.0>  }
 // sun ---------------------------------------------------------------------
 light_source {<-1500,2500,-2500> color White }
-light_source {<1500,0,-2500> color White }
->>>>>>> origin/master
+//light_source {<1500,0,-2500> color White }
 // sky ---------------------------------------------------------------------
 sky_sphere { pigment { gradient <0,1,0>
                        color_map { [0.00 rgb <1.0,1.0,1.0>]
@@ -233,17 +226,11 @@ translate <9,5,-10>
 //---------------------------------------------------------
 //corps de clavier 66 x 8,3 x 18,4 cm
 //---------------------------------------------------------
+#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 4.0 scale <1.0,1.0,1.0> translate <5,5,3>}}
+#declare molette_hole = object {molette scale <1.1,1.1,1.1>}
 
+#declare KEY_cutout = box { <0,0,0>,< 52.7, 50.00, 17>  }
 
-#declare KEY_cutout1 = box { <0,0,0>,< 52.7, 50.00, 17>  }
-#declare KEY_cutout2 = box { <0,0,1>,< 52.7, 50.00, 16>  }
-#declare KEY_cutout = object
-{
-    merge{
-        object {KEY_cutout1 }
-        object {KEY_cutout2 }
-    }
-}
 // main box of the keyboard
 // linear prism in x-direction: from ... to ..., number of points (first = last)
 #declare body = object{
@@ -266,44 +253,35 @@ difference
                 rotate<-90,-90,0> //turns prism in x direction! Don't change this line!
                 //setting to the right size
                 scale <Xbox*0.95 ,Ybox*0.95 ,(Zbox*0.5)*0.95 >
-<<<<<<< HEAD
                 translate <Xbox*0.025,0,Zbox/2>
-=======
-                translate <0,0,Zbox/2>
->>>>>>> origin/master
             }
         } //close object {prism}
 
         //superior box
-        object {Round_Box ( <0,0,0> , < Xbox,Ybox*0.16,Zbox >  , 0.30, 0)   rotate <-1*degrees(atan((Ybox/3)/Zbox)),0,0> translate <0,Ybox*0.60,0> }
+        object {Round_Box ( <0,0,0> , < Xbox,Ybox*0.16,Zbox >  , 0.80, 0)   rotate <-1*degrees(atan((Ybox/3)/Zbox)),0,0> translate <0,Ybox*0.60,0> }
 
 
     }//close merge
-<<<<<<< HEAD
-    object {KEY_cutout translate <8.4999999,Ybox*0.60+0.00000001, -2.10>}
-=======
     object {KEY_cutout translate <8.5,Ybox*0.60, -2.10>}
->>>>>>> origin/master
+    object { molette_hole translate <0,0,Zbox/2>}
+    //object { molette_hole translate <0,0,0>}
 } //close difference
 //remise au centre
 translate <0,0,-Zbox/2>
 texture {PCB_NOIR }
-<<<<<<< HEAD
 } //close object   
 
-
-
-
-cylinder { <-1,0,0>,<1,0,0>, 0.30
-                 
-                    // end of texture
-           scale <10,10,10> rotate<0,0,0> translate<0,0,0>
-         } // end of cylinder  ------------------------------------
-
-=======
-} //close object
->>>>>>> origin/master
 //---------------------------------------------------------
+
+#declare midi_keyboard = object{
+union {
+object{body}
+object{molette texture {PCB_NOIR }}
+object{KEYS translate <0,-0.50, 2.0>} 
+}
+}
+
+
 
 //--------------------------------------------------------------------------
 //---------------------------- objects in scene ----------------------------
@@ -311,11 +289,7 @@ cylinder { <-1,0,0>,<1,0,0>, 0.30
 
 
 //object {KEYS translate <0,-0.50, 2.0> }
-<<<<<<< HEAD
-//object {body translate <0,0.00, 0.00> }
-=======
-object {body translate <0,0.00, 0.00> }
->>>>>>> origin/master
+object {midi_keyboard translate <0,0.00, 0.00> }
 
 
 

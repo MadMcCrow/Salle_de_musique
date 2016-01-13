@@ -1,0 +1,38 @@
+//wood texture
+
+#declare T_wood = {     
+       texture{ Rosewood     
+                normal { wood 0.5 scale 0.3 rotate<0,90,0> turbulence 0.1}
+                finish { phong 1} 
+                rotate<60,0,45> scale 0.5
+              } 
+       texture{ pigment{ color rgb<1,1,1> }
+              normal { pigment_pattern{
+                            average pigment_map{[1, gradient z sine_wave]
+                                                [1, gradient y scallop_wave]
+                                                [3, bumps  ]}
+                                         translate 0.02 scale 0.5}
+                                         2 
+                         rotate< 0,0,0> scale 0.15 }
+                finish { phong 1 reflection{ 0.2 } }
+              }
+              }
+
+
+
+//POINT DE VUE
+camera {
+        location <50,60,-60>
+        look_at <26,22,18.5>
+        }
+           
+           
+      
+      
+           
+//LUMIERES      
+light_source {
+              <0,1000,-100>
+              color White
+              }
+light_source {
