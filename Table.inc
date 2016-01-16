@@ -6,17 +6,17 @@
 #include "woods.inc" 
 
 //POINT DE VUE
-camera {
+/*camera {
         location <200,100,200>
         look_at <50,35,50>
-        }
+        }*/
            
            
       
       
            
 //LUMIERES      
-light_source {
+/*light_source {
               <0,1000,-100>
               color White
               }
@@ -27,7 +27,7 @@ light_source {
 light_source {
               <25,1000,-52>
               color White
-              }
+              }*/
 
              
                                              
@@ -43,7 +43,7 @@ light_source {
 
 
 //TEXTURES: couleurs de l'objet, réflection... etc
-#declare T_bois = texture { pigment {Tan_Wood} finish {  diffuse 0.46 phong 0.0005} scale 1.1 }
+#declare T_bois = texture { pigment {Tan_Wood} finish {  diffuse 0.46 phong 0.0005} scale 1.1}
                                    
                                     
                   
@@ -65,11 +65,11 @@ light_source {
 
 
 
-#declare Table =
+#declare Table = union {
                 object { Pieds_table texture { T_bois } }
                 object { Dessus_table translate <-5,65,-5> texture { T_bois } }
                 object { Cales_table texture { T_bois } }
-
+                }
                            
 
 
@@ -78,7 +78,8 @@ light_source {
 //MIS EN PLACE
 object { Table }
 
-
+// Sol 
+/*plane {y, -1 pigment {Gray50}}*/
        
 
 
