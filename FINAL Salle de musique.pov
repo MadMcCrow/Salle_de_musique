@@ -10,7 +10,7 @@
 //CAMERA
 
 camera { 
-        location <0,210,-400> look_at <600,100,500> angle 60
+        location <00,200,-400> look_at <700,100,600> angle 60
         
         }                                                                                                                                                            
         
@@ -195,7 +195,7 @@ object { fenetre translate <-665,1,930> rotate <0,45,0> }
 object { Rideaux translate <1000,H,590> } 
 
     //Sol
-plane {y, -1 pigment { Gray50} } 
+object { #include "wooden floor.inc" }
 
     //OBJET IMPORTEE!!!!
     
@@ -211,17 +211,28 @@ union {
         union{
 object { #include "Table.inc" scale 1 rotate <0,-80,0> translate <300,0,-50> }
 object { #include "imac.inc" scale 1 rotate <0,20,0> translate <230,72,50> }
+object { #include "clavier-piano.inc" scale 1 rotate <0,20,0> translate <210,72,-10> }
+object { #include "Enceinte table.inc" scale 1.2 rotate <0,140,0> translate <290,71,15> }
+object { #include "Tapis de souris.inc" scale <1.5,1,1.5> rotate <0,100,0> translate <285,70.5,-15> }
+object { #include "Souris.inc" scale 2 rotate <0,150,0> translate <295,67,-30> }
              }
              
         union{
 object { #include "Table.inc" scale 1 rotate <0,-85,0> translate <411,0,-30> }
 object { #include "imac.inc" scale 1 rotate <0,-5,0> translate <320,72,40> }
+object { #include "clavier-piano.inc" scale 1 rotate <0,0,0> translate <310,72,-12> }
+object { #include "Enceinte table.inc" scale 1.2 rotate <0,120,0> translate <390,71,35> }
+object { #include "Tapis de souris.inc" scale <1.5,1,1.5> rotate <0,100,0> translate <385,70.5,15> }
+object { #include "Souris.inc" scale 2 rotate <0,170,0> translate <395,67,0> }
              } 
              
         union{
 object { #include "Table.inc" scale 1 rotate <0,-110,0> translate <320,0,120> }
 object { #include "imac.inc" scale 1 rotate <0,-190,0> translate <300,72,120> }
-
+object { #include "clavier-piano.inc" scale 1 rotate <0,150,0> translate <285,72,185> }
+object { #include "Enceinte table.inc" scale 1.2 rotate <0,-60,0> translate <222,71,105> }
+object { #include "Tapis de souris.inc" scale <1.5,1,1.5> rotate <0,70,0> translate <195,70.5,175> }
+object { #include "Souris.inc" scale 2 rotate <0,-30,0> translate <210,67,170> }
              } 
              
         union{
