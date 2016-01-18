@@ -5,7 +5,12 @@
 #include "glass.inc"
 #include "woods.inc"
 
-
+        //Hauteur de la structure
+#declare H = 400;
+        //Rayon des articulations
+#declare R = 2 ;
+        //Epaisseur de la fenetre
+#declare E = 10 ;
 
 //CAMERA
 
@@ -22,7 +27,12 @@ light_source {
              }
              
 light_source {
-           <-5,300,100>
+           <0,500,700>
+           color White
+             }
+light_source {
+           <00,390,-50>
+           
            color White
              }
 
@@ -34,12 +44,7 @@ light_source {
 
 //MESHS 
 
-        //Hauteur de la structure
-#declare H = 400;
-        //Rayon des articulations
-#declare R = 2 ;
-        //Epaisseur de la fenetre
-#declare E = 10 ;
+
         
             //MUR
 #declare Mur = object { box { <0,0,0> <1000,H,50> } }
@@ -178,6 +183,11 @@ light_source {
                            object { Rideau4 rotate <0,-90,0> texture { T_rideau } translate <-1050,-H+5,0> }
                           
                            }
+                           
+                           
+#declare plafond = union {
+                             object { Mur texture {T_Mur} rotate <90,0,0> }
+                             } 
                  
                 
 //MIS EN SCENE
@@ -194,8 +204,8 @@ object { fenetre translate <-665,1,930> rotate <0,45,0> }
     //Rideaux
 object { Rideaux translate <1000,H,590> } 
 
-    //Sol
-object { #include "wooden floor.inc" }
+    //Exterieur
+//object { exterieur scale <2,2,0> translate <0,0,1500> }    
 
     //OBJET IMPORTEE!!!!
     
@@ -244,10 +254,15 @@ object { #include "imac.inc" scale 1 rotate <0,-170,0> translate <400,72,120> }
      //Fauteuils 
      union {
 object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-80,0> translate <280,0,-120> }
+object { #include "Casque.inc" scale 2 rotate <0,0,0> translate <190,55,-100> }
 
 
 object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-90,0> translate <400,0,-110> }
+object { #include "Casque.inc" scale 2 rotate <0,0,0> translate <387,55,-80> }
+
 object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-290,0> translate <170,0,260> }
+object { #include "Casque.inc" scale 2 rotate <90,70,-13> translate <300,131.5,375> }
+
 object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-290,0> translate <260,0,290> }
             }        
 } 
@@ -262,5 +277,7 @@ object { #include "Ampli guitare.inc" scale 1 rotate <0,90,0> translate <800,0,3
 object { #include "Guitare.inc" scale 1.7 rotate <0,90,-14> translate <800,0,380> }
         }
     //Plafond 
-//plane {y, H pigment { Gray50} }
-//plane {y, 400 pigment { Gray50} }
+object { plafond scale <3,1,3> translate <-1000,H+100,-300>}
+
+    //Sol
+object { #include "wooden floor.inc" }
