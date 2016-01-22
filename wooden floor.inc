@@ -64,10 +64,10 @@ camera {
         look_at <1,1,1>
         }  */
         
-plane { <0,1,0>, 0
+/*plane { <0,1,0>, 0
         texture{ T_woodenfloor
                } 
-      }
+      }*/
       
            
 /*//LUMIERES      

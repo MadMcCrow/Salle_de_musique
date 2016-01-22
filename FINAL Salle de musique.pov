@@ -3,7 +3,9 @@
 #include "shapes.inc"
 #include "metals.inc"
 #include "glass.inc"
-#include "woods.inc"
+#include "woods.inc" 
+
+#include "wooden floor.inc"
 
         //Hauteur de la structure
 #declare H = 400;
@@ -15,7 +17,7 @@
 //CAMERA
 
 camera { 
-        location <00,200,-400> look_at <700,100,600> angle 60
+        location <-800,200,-1300> look_at <700,100,600> angle 60
         
         }                                                                                                                                                            
         
@@ -48,7 +50,8 @@ light_source {
         
             //MUR
 #declare Mur = object { box { <0,0,0> <1000,H,50> } }
-#declare Mur_Joint = object { box { <0,0,0> <220,H,50> } }
+#declare Mur_Joint = object { box { <0,0,0> <220,H,50> } }                           
+#declare plafond = object { box { <0,0,0> <1206,0,1206> } }
 
 #declare V_mur = object { box { <0,0,0> <200,H-60,100> } }
 
@@ -65,7 +68,7 @@ light_source {
 #declare Verrou_fenetre3 = object { sphere{ <0,0,0>, 1 }  scale <3,4.5,1> } 
 
             //RIDEAU
-#declare Barre_rideau1 = object { cylinder { <0,0,0> <0,1000,0> 2 } rotate <0,0,90>} 
+#declare Barre_rideau1 = object { cylinder { <0,0,0> <0,1200,0> 2 } rotate <0,0,90>} 
 #declare Barre_rideau2 = object { cylinder { <0,0,0> <0,300,0> 2 } rotate <0,0,90>}
 
 #declare Rideau1 = isosurface { 
@@ -137,6 +140,9 @@ light_source {
                 
                 object { V_mur texture {T_Mur} rotate<0,45,0> translate <1010,40,-10.01>}
                 }
+                
+                object { plafond texture {T_Mur} translate <0,H,-1150>}
+                object { plafond texture {T_woodenfloor} translate <0,0,-1150> }
                  
                 }
 #declare fenetre = union { 
@@ -170,8 +176,8 @@ light_source {
                 } 
                 
 #declare Rideaux = union {
-                           object { Barre_rideau1 texture { Polished_Chrome } translate <0,-15,0> }
-                           object { Barre_rideau1 rotate <0,90,0> texture { Polished_Chrome } translate <-160,-15,-500> }
+                           object { Barre_rideau1 texture { Polished_Chrome } translate <0,-15,-200> }
+                           object { Barre_rideau1 rotate <0,90,0> texture { Polished_Chrome } translate <-160,-15,-1130> }
                            object { Barre_rideau2 rotate <0,45,0> texture { Polished_Chrome } translate <-160,-15,-160>}
                            
                            
@@ -184,10 +190,8 @@ light_source {
                           
                            }
                            
-                           
-#declare plafond = union {
-                             object { Mur texture {T_Mur} rotate <90,0,0> }
-                             } 
+
+                              
                  
                 
 //MIS EN SCENE
@@ -277,7 +281,7 @@ object { #include "Ampli guitare.inc" scale 1 rotate <0,90,0> translate <800,0,3
 object { #include "Guitare.inc" scale 1.7 rotate <0,90,-14> translate <800,0,380> }
         }
     //Plafond 
-object { plafond scale <3,1,3> translate <-1000,H+100,-300>}
+object { plafond}
 
     //Sol
-object { #include "wooden floor.inc" }
+//object { #include "wooden floor.inc" }
