@@ -27,25 +27,7 @@ light_source {
 //TEXTURES: couleurs de l'objet, réflection... etc
 
 
-#declare T_Mousse = texture{ pigment{ color rgb< 1, 1, 1>*0.08}
-                 normal { wrinkles 0.75 scale 0.1  }
-                 finish { phong 1 reflection{ 0.05 } }
-               }
-               
-#declare T_Cuir = texture{ pigment{ color rgb< 1, 1, 1>*0.1}
-                 normal { agate 0.05 scale 0.15 rotate<0,0,0> }
-                 finish { phong 0.1 reflection{ 0.0 } }
-               } 
 
-#declare T_Casque = texture { pigment{ color rgb< 1, 1, 1>*0.15 }
-                     finish { phong 1 reflection 0.1}
-                 }
-#declare T_Metal = texture{ Chrome_Metal
-                   normal { bumps 0.01 scale 0.05 } 
-                   finish { phong 1 }
-                } 
-
-          
                                            
 //MATERIAUX 
               

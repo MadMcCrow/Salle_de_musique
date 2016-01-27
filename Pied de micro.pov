@@ -27,14 +27,9 @@ light_source {
               
               
 
-//TEXTURES: couleurs de l'objet, réflection... etc
-#declare G = 0.01;
-#declare T_Pied_micro = texture { pigment { rgb <G,G,G> } }            
+                                                       
 
-                                             
-//MATERIAUX 
-              
-        //Objets de base               
+                          //Objets de base               
 #declare Pied_micro_pied = object { cylinder { <0,0,0> <0,20,0> 0.8 } texture {T_Pied_micro} rotate <-65,0,0> }
 #declare Pied_micro_pied_embout = object { cylinder { <0,0,0> <0,2,0> 1.2 }  texture {pigment {Black}} rotate <-65,0,0> }
 #declare R = 3 ;

@@ -82,7 +82,7 @@ light_source {
                                             }
                                               
                                               object { Anneau_enceinte1 translate<-0.05,0,0> texture { T_grille_Enceinte } }
-                                              object { Anneau_enceinte2 translate <0.0005,0,0> texture { pigment { White } } }
+                                              object { Anneau_enceinte2 translate <0.0005,0,0> texture { T_Plastic_BLANC } } }
                                               
                                               
                                  }

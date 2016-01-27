@@ -24,15 +24,8 @@ light_source {
               <0,10,-100>
               color White
               } */
-              
-              
+                                                                          
 
-//TEXTURES: couleurs de l'objet, réflection... etc
-#declare G = 0.01;
-#declare T_Pied_micro = texture { pigment { rgb <G,G,G> } }            
-
-                                             
-//MATERIAUX 
               
         //Objets de base               
 #declare Pied_micro_pied = object { cylinder { <0,0,0> <0,20,0> 0.8 } texture {T_Pied_micro} rotate <-65,0,0> }

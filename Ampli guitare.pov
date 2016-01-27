@@ -64,15 +64,6 @@ light_source {
 
 
 
-
-//TEXTURES: couleurs de l'objet, réflection... etc
-#declare Gris = pigment {rgbf < 0.5,0.5,0.5> }  
-#declare Ampli_peau =texture { pigment {rgbf < 0.05,0.05,0.05> }   normal { marble 1.5 scale 0.8 turbulence 1.0}}
-#declare Gris_metal = texture {pigment {rgbf < 0.3,0.3,0.3> } finish {ambient 0.1 diffuse 0.9 phong 1 }   } 
-#declare Cuir = texture { pigment {rgbf <0.5,0.35,0.1>} normal { bozo 3.00 scale 0.1} }
-#declare texture_Grille2 = pigment{ checker color White color Black scale 0.3 } 
-#declare Blanc = pigment {White}
-
                                    
                                     
                   

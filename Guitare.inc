@@ -35,16 +35,8 @@ light_source {
 
 
 
+                               
 
-//TEXTURES: couleurs de l'objet, réflection... etc
-
-#declare T_Corps = texture { pigment {DMFWood4} finish {ambient 0.1 phong 1 diffuse 0.9 } }
-#declare T_Corps_contours = texture { pigment { rgb <0.01,0.01,0.01> } finish {ambient 0.1 phong 1 diffuse 0.6 } normal { facets size 0.04 } }
-#declare T_Manche = texture { pigment {DMFWood5} finish {ambient 0.1 phong 1 diffuse 0.9 } }
-
-                                   
-                                    
-//MATERIAUX 
               
         //Objets de base
         

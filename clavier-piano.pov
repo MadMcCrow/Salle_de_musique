@@ -186,7 +186,7 @@ union
 
 
 // touches blanches
-#declare WhiteKEY =  object { Round_Box ( <0,0,0>,< 1.00, 1.0, 6.00> , 0.10, 0)  texture{Plastic_BLANC} }
+#declare WhiteKEY =  object { Round_Box ( <0,0,0>,< 1.00, 1.0, 6.00> , 0.10, 0)  texture{T_Plastic_BLANC} }
 #declare WHITEKeys = object {
 union
 {
@@ -274,8 +274,8 @@ texture {PCB_NOIR }
 #declare midi_keyboard = object{
 union {
 object{body}
-object{molette texture {Plastic_NOIR } translate <6.5,5.8,1>}
-object{molette texture {Plastic_NOIR } translate <4.0,5.8,1>}
+object{molette texture {T_Plastic_NOIR } translate <6.5,5.8,1>}
+object{molette texture {T_Plastic_NOIR } translate <4.0,5.8,1>}
 object{KEYS translate <0,-0.50, 2.0>}
 text { ttf "arial.ttf", "KONAR", 0.2, 0.0 // thickness, offset
 

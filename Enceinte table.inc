@@ -4,7 +4,7 @@
 #include "metals.inc"
 #include "glass.inc"
 #include "woods.inc" 
-
+#include "T_materiaux.inc"
 //POINT DE VUE
 /*camera {
         location <30,30,30>
@@ -45,7 +45,7 @@ light_source {
 
                                                                                              
 
-        //Objets invisibles qui vont permettrent de  créer les creux/relief...
+        //Objets invisibles qui vont permettre de  créer les creux/relief...
 #declare V_Anneau_enceinte = object { cylinder { <0,0,0> <0,0.01,0>, 0.4 } scale 10 rotate <0,0,70>}
 
 
@@ -54,7 +54,7 @@ light_source {
 
 
 //TEXTURES: couleurs de l'objet, réflection... etc
-#declare T_grille_Enceinte = texture { pigment { checker color Gray50 color rgb <0.35,0.35,0.35> } scale 0.1}
+
                                    
                                     
                   
@@ -82,7 +82,7 @@ light_source {
                                             }
                                               
                                               object { Anneau_enceinte1 translate<-0.05,0,0> texture { T_grille_Enceinte } }
-                                              object { Anneau_enceinte2 translate <0.0005,0,0> texture { pigment { White } } }
+                                              object { Anneau_enceinte2 translate <0.0005,0,0> texture {T_Plastic_BLANC } }
                                               
                                               
                                  }

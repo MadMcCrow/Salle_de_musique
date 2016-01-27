@@ -30,16 +30,10 @@ light_source {
               
               
 
-//TEXTURES: couleurs de l'objet, réflection... etc
+
              
-#declare T_Ecran_corps = texture { pigment { rgb <0.7,0.7,0.7> } }
-#declare T_Ecran_surface = texture { pigment { Black } }
-#declare L = 5 ;
-#declare T_Logo  = texture { pigment {image_map {png "Apple.png" map_type 0 interpolate 2 }scale L } }
-#declare T_ecran = texture { pigment { image_map { png "Fond_ecran.png"interpolate 2 once} scale <58,33,10>}  }
-                                             
-//MATERIAUX 
-              
+#declare L = 5 ;                       
+  
         //Objets de base               
 
 #declare Ecran_corps    = object { Round_Box ( <0,0,0> <62,49,0> 3,0 )         texture { T_Ecran_corps   }                                        }
