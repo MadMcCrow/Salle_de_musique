@@ -8,6 +8,7 @@ global_settings {assumed_gamma 1.0}
 #include "shapes.inc"
 #include "shapes2.inc"
 #include "shapesq.inc"
+#include "T_materiaux.inc"
 
 //Scene for better visualisation
 //--------------------------------------------------------------------------
@@ -81,7 +82,7 @@ plane { <0,1,0>, 0
 //--------------------------------------------------------------------------
 
 
-#declare PCB_NOIR = texture { pigment{ color rgb< 1, 1, 1>*0.10 } //  color Gray10
+#declare  = texture { pigment{ color rgb< 1, 1, 1>*0.10 } //  color Gray10
 // normal { bumps 0.5 scale 0.05 }
 finish { phong 1 reflection 0.00 }
 } // end of texture
@@ -90,10 +91,6 @@ finish { phong 1 reflection 0.00 }
 #declare PCB_BLANC = texture{ pigment{ color rgb< 1, 1, 1> } //  color White
 // normal { bumps 0.5 scale 0.05 }
 finish { phong 1 reflection 0.00 }
-} // end of texture
-
-#declare invisible_show = texture{ pigment{ color rgb< 1, 1, 0> }
-finish { phong 1 reflection 0.00}
 } // end of texture
 
 
@@ -110,7 +107,7 @@ finish { phong 1 reflection 0.00}
 // touches noires
 
 #declare BlackKEY =  object {Round_Box ( <0,0,2>,< 0.60, 1.00, 6.00>  , 0.10, 0  )
-texture {PCB_NOIR}
+texture {Plastic_NOIR}
 }
 #declare BLACK3Keys = object {
 union
@@ -189,7 +186,7 @@ union
 
 
 // touches blanches
-#declare WhiteKEY =  object { Round_Box ( <0,0,0>,< 1.00, 1.0, 6.00> , 0.10, 0)  texture{PCB_BLANC} }
+#declare WhiteKEY =  object { Round_Box ( <0,0,0>,< 1.00, 1.0, 6.00> , 0.10, 0)  texture{Plastic_BLANC} }
 #declare WHITEKeys = object {
 union
 {
@@ -277,12 +274,12 @@ texture {PCB_NOIR }
 #declare midi_keyboard = object{
 union {
 object{body}
-object{molette texture {PCB_NOIR } translate <6.5,5.8,1>}
-object{molette texture {PCB_NOIR } translate <4.0,5.8,1>}
+object{molette texture {Plastic_NOIR } translate <6.5,5.8,1>}
+object{molette texture {Plastic_NOIR } translate <4.0,5.8,1>}
 object{KEYS translate <0,-0.50, 2.0>}
 text { ttf "arial.ttf", "KONAR", 0.2, 0.0 // thickness, offset
 
-       texture{ PCB_BLANC}
+       texture{ Plastic_BLANC}
        rotate <90-(degrees(atan((8.3/3)/18.4))),0,0> 
        scale<1,1.25,1>*1.7
        translate<7,8.90,6.5 >

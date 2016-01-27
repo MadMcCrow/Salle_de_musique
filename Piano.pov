@@ -4,7 +4,7 @@
 #include "metals.inc"
 #include "glass.inc"
 #include "woods.inc"
-
+#include "T_materiaux.inc"
 //POINT DE VUE
 camera {
         location <-150,100,-150>

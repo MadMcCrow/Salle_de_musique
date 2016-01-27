@@ -4,7 +4,7 @@
 #include "metals.inc"
 #include "glass.inc"
 #include "woods.inc"
-
+#include "T_materiaux.inc"
 //POINT DE VUE
 
            
@@ -26,9 +26,7 @@ light_source {
               
 
 //TEXTURES: couleurs de l'objet, réflection... etc
-#declare T_piano_bois = texture { pigment {DMFWood5} finish {ambient 0.1 phong 1 diffuse 0.9 } }
-#declare T_piano_interieur = texture { pigment {DMFWood4} finish {ambient 0.1 phong 1 diffuse 0.9 } }
-                                             
+                                     
 //MATERIAUX 
               
         //Objets de base                           
