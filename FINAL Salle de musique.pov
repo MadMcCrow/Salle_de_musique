@@ -4,6 +4,7 @@
 #include "metals.inc"
 #include "glass.inc"
 #include "woods.inc" 
+#include "T_materiaux"
 
 #include "wooden floor.inc"
 
@@ -223,7 +224,7 @@ union {
     //Table
     union { 
         union{
-object { #include "Table.inc" scale 1 rotate <0,-80,0> translate <300,0,-50> }
+object { #include "Table.inc"  rotate <0,-80,0> translate <300,0,-50> }
 object { #include "imac.inc" scale 1 rotate <0,20,0> translate <230,72,50> }
 object { #include "clavier-piano.inc" scale 1 rotate <0,20,0> translate <210,72,-10> }
 object { #include "Enceinte table.inc" scale 1.2 rotate <0,140,0> translate <290,71,15> }
