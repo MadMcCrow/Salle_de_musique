@@ -52,7 +52,7 @@
                  }
 #declare T_Metal = texture{ Chrome_Metal
                    normal { bumps 0.01 scale 0.05 } 
-                   finish { phong 1 }
+                   finish { phong 1 brilliance 2 }
 } 
 
 //enceinte bizarre de table
@@ -79,10 +79,10 @@
                                                                 
 
 //micro
-
-#declare T_Metal_Gris_clair = texture {   pigment { rgbf <0.3,0.3,0.3> } normal { bumps 0.01 scale 0.05 } finish {ambient 0.001 phong 0.5 diffuse 0.4 reflection 0.1} }
-#declare T_Metal_Gris_fonce = texture {    normal { bumps 0.01 scale 0.05 } finish {ambient 0.001 phong 0.5 diffuse 0.4 reflection 0.1} } 
-#declare T_Micro_grill = texture { pigment { checker color Black color rgb<0.8,0.8,0.8> scale 0.2 } finish {ambient 0.001 phong 0.5 diffuse 0.4 reflection 0.01} }       
+                                                                                                          
+#declare T_Metal_Gris_clair = texture {  pigment { color rgb <1,1,1>*1.0 } normal { bumps 0.01 scale 0.05 }    finish {ambient 0.01 phong 0.5 diffuse 1.5 brilliance 8 crand 0.05 reflection 0.01} }
+#declare T_Metal_Gris_fonce = texture {  pigment { color rgb <1,1,1>*0.5 } normal { bumps 0.01 scale 0.05 }    finish {ambient 0.01 phong 0.5 diffuse 1.5 brilliance 6 crand 0.05 reflection 0.01} } 
+#declare T_Micro_grill =      texture {  pigment { checker color Black color rgb<0.8,0.8,0.8> scale 0.2 }      finish {ambient 0.01 phong 0.5 diffuse 2.0 brilliance 5 crand 0.05 } }       
 
 
 

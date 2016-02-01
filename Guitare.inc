@@ -1,40 +1,5 @@
-#include "colors.inc"
-#include "textures.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc" 
-
-//POINT DE VUE
-/*camera {
-        location <50,50,-140>
-        look_at <12.5,30,5>
-        }
-           
-           
-      
-      
-           
-//LUMIERES      
-light_source {
-              <0,1000,-100>
-              color White
-              }
-light_source {
-              <0,1000,1000>
-              color White
-              }
-light_source {
-              <25,10,-52>
-              color White
-              } */
-
-             
-                                             
-
-
-
-
+#include "T_materiaux.inc"
                                
 
               
@@ -199,16 +164,3 @@ light_source {
                     
                     object { Bouton_guitare1 translate <12,15,-4> texture {T_Corps_contours} }
                     }
-                    
-//MIS EN PLACE
-object { object {Guitare} }  
-
-// Sol
-//plane {y, -1 pigment {Gray50}}
-       
-
-
-
-
-
-           

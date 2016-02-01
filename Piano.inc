@@ -1,32 +1,9 @@
-#include "colors.inc"
-#include "textures.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc"
 #include "T_materiaux.inc"
-//POINT DE VUE
 
            
            
-           
-           
-//LUMIERES                                                                                                               
 
-/*light_source {
-              <100,1000,-100>
-              color White
-              }
-light_source {
-              <75,50,-550>
-              color White
-              } */
-
-              
-              
-
-//TEXTURES: couleurs de l'objet, réflection... etc
-                                     
 //MATERIAUX 
               
         //Objets de base                           
@@ -113,10 +90,3 @@ light_source {
                         object {Planche5 translate <0,60,30>}
                         object {Post_it}
                         }
-
-
-//MIS EN PLACE
-object { Piano } 
-
-// Sol
-//plane {y, -1 pigment {Gray50}}

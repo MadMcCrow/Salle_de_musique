@@ -4,10 +4,15 @@
 #include "Fauteuil.inc"
 #include "Casque.inc"
 #include "clavier-piano.inc"
+#include "Piano.inc"
 #include "Enceinte.inc"
+#include "Enceinte table.inc"
 #include "Table.inc"
 #include "imac.inc"
 #include "Tapis de souris.inc"
+#include "Ampli guitare.inc"
+#include "Guitare.inc"
+
 #include "T_materiaux.inc"
 
         //Hauteur de la structure
@@ -17,12 +22,29 @@
         //Epaisseur de la fenetre
 #declare E = 10 ;
 
-//CAMERA
+//CAMERA ET SCENE
 
-camera { 
-        location <-800,200,-1300> look_at <700,100,600> angle 60
-        
-        }                                                                                                                                                            
+camera { perspective location <-800,200,-1300>   right     x*image_width/image_height look_at <700,100,600> angle 60 }  
+                                                                                                                                                          
+// set global atmospheric fog effect in the scene.
+// at the fog distance, there will be 63% visibility
+ fog {
+  fog_type 1               // 1=constant, 2=ground_fog
+  distance 9000
+  color Gray               // can also have 'filter' and 'transmit'
+  // (---turbulence---)
+  //turbulence <0.5, 0.5, 1.0>
+  //turb_depth 0.5
+  //omega 0.5
+  //lambda 2.0
+  //octaves 6
+  // (---ground fog---)
+  //fog_offset 0.5         // height of constant fog
+  //fog_alt 0.5            // at fog_offset+fog_alt: density=25%
+}
+
+
+
         
 //LUMIERES
 
@@ -255,7 +277,7 @@ object { Souris scale 2 rotate <0,-30,0> translate <210,67,170> }
              
         union{
 object { Table scale 1 rotate <0,-110,0> translate <430,0,150> }
-object { Imac.inc scale 1 rotate <0,-170,0> translate <400,72,120> }
+object { Imac  scale 1 rotate <0,-170,0> translate <400,72,120> }
              }
 
         }
@@ -279,10 +301,10 @@ object { Fauteuil scale <1,0.85,1> rotate <0,-290,0> translate <260,0,290> }
 object { Pied_micro scale <1.7,2,1.7> rotate <0,-90,0> translate <500,0,10> }
 
     // Ampli
-object { #include "Ampli guitare.inc" scale 1 rotate <0,90,0> translate <800,0,350> }
+object { Ampli scale 1 rotate <0,90,0> translate <800,0,350> }
  
     //Guitare
-object { #include "Guitare.inc" scale 1.7 rotate <0,90,-14> translate <800,0,380> }
+object { Guitare scale 1.7 rotate <0,90,-14> translate <800,0,380> }
         }
     //Plafond 
 object { plafond}

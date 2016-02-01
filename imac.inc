@@ -1,34 +1,7 @@
-#include "colors.inc"
-#include "textures.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc"
 #include "shapes3.inc"
- 
-
-//POINT DE VUE
-/*camera {
-        location <0,60,-100>
-        look_at <30,30,0>
-        }
-           
-           
-      
-      
-           
-//LUMIERES                                                                                                               
-
-light_source {
-              <100,1000,-100>
-              color White
-              }
-light_source {
-              <0,10,-100>
-              color White
-              }*/
-              
-                                             
+#include "T_materiaux.inc"
+                
 #declare L = 5 ;
               
         //Objets de base               
@@ -98,17 +71,6 @@ light_source {
                         object {Support_chelou translate <15.5,0,3> scale <1.6,0,0>}
                       }
                 
-                             
-
-//MIS EN PLACE
-object { Imac } 
-
-// Sol
-//plane {y, -1 pigment {Gray50}}
-       
-
-
-
 
 
            
