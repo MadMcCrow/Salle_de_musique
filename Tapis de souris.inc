@@ -1,9 +1,5 @@
-#include "colors.inc"
-#include "textures.inc"
+#include "T_materiaux.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc"
 
 //POINT DE VUE
 /*camera {
@@ -25,14 +21,13 @@ light_source {
               
 
 //TEXTURES: couleurs de l'objet, réflection... etc
-#declare T_Tapie_souris = texture { pigment { Blue } normal {wrinkles 20 scale 0.2} }
-                                             
+
 //MATERIAUX 
               
         //Objets de base 
         
 #declare Tapie = object { Round_Box (<0,0,0> <15,1,15>,0.25,0) texture {T_Tapie_souris} }
-#declare Contour_Tapie = object { Round_Box (<0,0,0> <15.1,0.9,15.1>,0.25,0) texture {pigment { Black } } } 
+#declare Contour_Tapie = object { Round_Box (<0,0,0> <15.1,0.9,15.1>,0.25,0) texture {T_TissuNoir } } 
 
                                   
                   

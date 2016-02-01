@@ -1,7 +1,6 @@
 //this is the file containing the piano keyboards ( midi input) that you can see on the photo
-#version 3.7;
 //global_settings {assumed_gamma 1.0}
-#include "colors.inc"
+
 #include "functions.inc"
 #include "math.inc"
 #include "transforms.inc" // some not built in basic shapes
@@ -18,8 +17,8 @@
 
 // touches noires
 
-#declare BlackKEY =  object {Round_Box ( <0,0,2>,< 0.60, 1.00, 6.00>  , 0.10, 0  )
-texture {PCB_NOIR}
+#declare BlackKEY =  object {Round_Box ( <0,0,2>,< 0.60, 1.00, 6.00>  , 0.15, 0  )
+texture {T_Plastic_NOIR}
 }
 #declare BLACK3Keys = object {
 union
@@ -98,7 +97,7 @@ union
 
 
 // touches blanches
-#declare WhiteKEY =  object { Round_Box ( <0,0,0>,< 1.00, 1.0, 6.00> , 0.10, 0)  texture{T_Plastic_BLANC} }
+#declare WhiteKEY =  object { Round_Box ( <0,0,0>,< 1.00, 1.0, 6.00> , 0.15, 0)  texture{T_Plastic_BLANC} }
 #declare WHITEKeys = object {
 union
 {
@@ -134,8 +133,9 @@ translate <9,5,-10>
 
 //---------------------------------------------------------
 //corps de clavier 66 x 8,3 x 18,4 cm
-//---------------------------------------------------------
-#declare molette      = object {cylinder { <-1,0,0>,<1,0,0>, 4.0 scale <0.60,0.80,0.80> }}
+//---------------------------------------------------------   
+
+#declare molette      = object {Round_Cylinder( <-1,0,0>,<1,0,0>, 4.0,       0.50,   0) scale <0.60,0.80,0.80> }
 #declare molette_hole = object {molette scale <1.2,1.1,1.1>}
 
 #declare KEY_cutout = box { <0,0,0>,< 52.7, 50.00, 17>  }
@@ -178,7 +178,7 @@ difference
 } //close difference
 //remise au centre
 translate <0,0,-Zbox/2>
-texture {PCB_NOIR }
+texture {T_Plastic_NOIR }
 } //close object   
 
 //---------------------------------------------------------
@@ -191,7 +191,7 @@ object{molette texture {T_Plastic_NOIR } translate <4.0,5.8,1>}
 object{KEYS translate <0,-0.50, 2.0>}
 text { ttf "arial.ttf", "KONAR", 0.2, 0.0 // thickness, offset
 
-       texture{ PCB_BLANC}
+       texture{ T_Plastic_BLANC}
        rotate <90-(degrees(atan((8.3/3)/18.4))),0,0> 
        scale<1,1.25,1>*1.7
        translate<7,8.90,6.5 >
@@ -208,7 +208,7 @@ text { ttf "arial.ttf", "KONAR", 0.2, 0.0 // thickness, offset
 //--------------------------------------------------------------------------
 
 
-//object {KEYS translate <0,-0.50, 2.0> }
+
 object {midi_keyboard translate <0,0.00, 0.00> }
 
 

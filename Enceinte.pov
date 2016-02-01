@@ -1,4 +1,4 @@
-#include "shapes.inc"
+
 #include "T_materiaux.inc"
 #include "Enceinte.inc"
 

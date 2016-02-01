@@ -1,32 +1,7 @@
-#include "colors.inc"
 #include "textures.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc"
 #include "T_materiaux.inc"
-
-//POINT DE VUE
-/*camera {
-        location <20,10,-20>
-        look_at <0,5,0>
-        }
-           
-           
-           
-           
-//LUMIERES                                                                                                               
-
-light_source {
-              <100,1000,-100>
-              color White
-              }    */
-
               
-
-
-              
-        //Objets de base               
 #declare Ecouteur = object {
                         merge {
                                 difference {
@@ -92,8 +67,3 @@ light_source {
                             object { Lien_casque }   
                          }
 
-//MIS EN PLACE
-object { Casque } 
-
-// Sol
-//plane {y, -1 pigment {Gray50}}

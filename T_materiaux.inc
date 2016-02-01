@@ -8,14 +8,10 @@
 // material file for the scene and object in salle_de_music
 
 //clavier midi
-#declare T_Plastic_NOIR = texture { pigment{ color rgb< 1, 1, 1>*0.10 }
-finish { phong 1 reflection 0.00 }
-} // end of texture
+#declare T_Plastic_NOIR = texture { pigment{ color rgb< 1, 1, 1>*0.10 } finish {ambient 0.001 phong 0.4 diffuse 0.6 } } 
+                                                                                          
 
-
-#declare T_Plastic_BLANC = texture{ pigment{ color rgb< 1, 1, 1> }
-finish { phong 1 reflection 0.00 }
-} 
+#declare T_Plastic_BLANC = texture{ pigment{ color rgb< 1, 1, 1>*0.9}   finish {ambient 0.01 phong 0.9 diffuse 0.9 } } 
 
 
 //piano de dos
@@ -79,8 +75,18 @@ finish { phong 1 reflection 0.00 }
                                                                 
 
 //enceinte 
-#declare T_Gris_clair = pigment { rgbf <0.3,0.3,0.3> }
-#declare T_Gris_fonce = pigment { rgbf <0.1,0.1,0.1> }
-#declare T_Bois_fonce = texture { pigment { rgbf <0.05,0.05,0.05> } normal { granite 1.5  scale 1} }
+#declare T_Gris_clair = texture { pigment { rgbf <0.3,0.3,0.3> } finish {ambient 0.01 phong 0.05 diffuse 0.4 } }
+#declare T_Gris_fonce = texture { pigment { rgbf <0.1,0.1,0.1> } finish {ambient 0.01 phong 0.05 diffuse 0.4 } }
+#declare T_Bois_fonce = texture { pigment { rgbf <0.05,0.05,0.05> } normal { granite 0.15  scale 1.2}  finish {ambient 0.02 phong 0.5 diffuse 0.5 } }
                                              
-                                   
+//Tapis de souris
+#declare T_Tapie_souris = texture { pigment { rgbf <0.05,0.05,0.7> } normal {wrinkles 20 scale 0.1}  finish {ambient 0.001 phong 0.4 diffuse 0.9 } }
+#declare T_TissuNoir = texture { pigment { rgbf <0.01,0.01,0.01> } finish {ambient 0.01 phong 0.1 diffuse 0.9 } }
+
+// fauteuil
+
+#declare T_Laine = texture { pigment { Flesh} normal { wrinkles 0.5 scale 0.5} finish {ambient 0.01 phong 0.1 diffuse 0.9 } }
+#declare T_pied = texture { pigment { DMFWood5} finish {ambient 0.01 phong 0.01 diffuse 0.9 } }
+
+//table
+#declare T_bois = texture { pigment {Tan_Wood} finish {  diffuse 0.46 phong 0.0005} scale 1.1}                                                                                                          
