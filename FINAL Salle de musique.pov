@@ -1,25 +1,14 @@
-<<<<<<< HEAD
-#include "colors.inc"
-#include "textures.inc"
-#include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc" 
-#include "T_materiaux"
-
 #include "wooden floor.inc"
-=======
 #include "Souris.inc"
 #include "Pied de micro.inc"
 #include "Fauteuil.inc"
 #include "Casque.inc"
 #include "clavier-piano.inc"
 #include "Enceinte.inc"
-#include "T_materiaux.inc"
 #include "Table.inc"
 #include "imac.inc"
 #include "Tapis de souris.inc"
->>>>>>> origin/master
+#include "T_materiaux.inc"
 
         //Hauteur de la structure
 #declare H = 400;
@@ -229,7 +218,7 @@ object { Rideaux translate <1000,H,590> }
     
 union {    
     //Piano
-object { #include "Piano.inc" scale 1.1 rotate <0,-20,0> translate <200,0,320> }
+object { Piano scale 1.1 rotate <0,-20,0> translate <200,0,320> }
   
   
   
@@ -237,15 +226,11 @@ union {
     //Table
     union { 
         union{
-<<<<<<< HEAD
-object { #include "Table.inc"  rotate <0,-80,0> translate <300,0,-50> }
-object { #include "imac.inc" scale 1 rotate <0,20,0> translate <230,72,50> }
-=======
+
 object { Table scale 1 rotate <0,-80,0> translate <300,0,-50> }
 object { Imac scale 1 rotate <0,20,0> translate <230,72,50> }
->>>>>>> origin/master
-object { #include "clavier-piano.inc" scale 1 rotate <0,20,0> translate <210,72,-10> }
-object { #include "Enceinte table.inc" scale 1.2 rotate <0,140,0> translate <290,71,15> }
+object { midi_keyboard scale 1 rotate <0,20,0> translate <210,72,-10> }
+object { Enceinte_table scale 1.2 rotate <0,140,0> translate <290,71,15> }
 object { Tapis_souris scale <1.5,1,1.5> rotate <0,100,0> translate <285,70.5,-15> }
 object { Souris scale 2 rotate <0,150,0> translate <295,67,-30> }
              }
@@ -253,45 +238,45 @@ object { Souris scale 2 rotate <0,150,0> translate <295,67,-30> }
         union{
 object { Table scale 1 rotate <0,-85,0> translate <411,0,-30> }
 object { Imac scale 1 rotate <0,-5,0> translate <320,72,40> }
-object { #include "clavier-piano.inc" scale 1 rotate <0,0,0> translate <310,72,-12> }
-object { #include "Enceinte table.inc" scale 1.2 rotate <0,120,0> translate <390,71,35> }
+object { midi_keyboard scale 1 rotate <0,0,0> translate <310,72,-12> }
+object { Enceinte_table scale 1.2 rotate <0,120,0> translate <390,71,35> }
 object { Tapis_souris scale <1.5,1,1.5> rotate <0,100,0> translate <385,70.5,15> }
 object { Souris scale 2 rotate <0,170,0> translate <395,67,0> }
              } 
              
         union{
-object { #include "Table.inc" scale 1 rotate <0,-110,0> translate <320,0,120> }
-object { #include "imac.inc" scale 1 rotate <0,-190,0> translate <300,72,120> }
-object { #include "clavier-piano.inc" scale 1 rotate <0,150,0> translate <285,72,185> }
-object { #include "Enceinte table.inc" scale 1.2 rotate <0,-60,0> translate <222,71,105> }
-object { #include "Tapis de souris.inc" scale <1.5,1,1.5> rotate <0,70,0> translate <195,70.5,175> }
-object { #include "Souris.inc" scale 2 rotate <0,-30,0> translate <210,67,170> }
+object { Table scale 1 rotate <0,-110,0> translate <320,0,120> }
+object { Imac scale 1 rotate <0,-190,0> translate <300,72,120> }
+object { midi_keyboard scale 1 rotate <0,150,0> translate <285,72,185> }
+object { Enceinte_table scale 1.2 rotate <0,-60,0> translate <222,71,105> }
+object { Tapis_souris scale <1.5,1,1.5> rotate <0,70,0> translate <195,70.5,175> }
+object { Souris scale 2 rotate <0,-30,0> translate <210,67,170> }
              } 
              
         union{
-object { #include "Table.inc" scale 1 rotate <0,-110,0> translate <430,0,150> }
-object { #include "imac.inc" scale 1 rotate <0,-170,0> translate <400,72,120> }
+object { Table scale 1 rotate <0,-110,0> translate <430,0,150> }
+object { Imac.inc scale 1 rotate <0,-170,0> translate <400,72,120> }
              }
 
         }
      //Fauteuils 
      union {
-object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-80,0> translate <280,0,-120> }
-object { #include "Casque.inc" scale 2 rotate <0,0,0> translate <190,55,-100> }
+object { Fauteuil scale <1,0.85,1> rotate <0,-80,0> translate <280,0,-120> }
+object { Casque scale 2 rotate <0,0,0> translate <190,55,-100> }
 
 
-object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-90,0> translate <400,0,-110> }
-object { #include "Casque.inc" scale 2 rotate <0,0,0> translate <387,55,-80> }
+object { Fauteuil scale <1,0.85,1> rotate <0,-90,0> translate <400,0,-110> }
+object { Casque scale 2 rotate <0,0,0> translate <387,55,-80> }
 
-object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-290,0> translate <170,0,260> }
-object { #include "Casque.inc" scale 2 rotate <90,70,-13> translate <300,131.5,375> }
+object { Fauteuil scale <1,0.85,1> rotate <0,-290,0> translate <170,0,260> }
+object { Casque scale 2 rotate <90,70,-13> translate <300,131.5,375> }
 
-object { #include "fauteuil.inc" scale <1,0.85,1> rotate <0,-290,0> translate <260,0,290> }
+object { Fauteuil scale <1,0.85,1> rotate <0,-290,0> translate <260,0,290> }
             }        
 } 
 
     //Pied de micro
-object { #include "Pied de micro.inc" scale <1.7,2,1.7> rotate <0,-90,0> translate <500,0,10> }
+object { Pied_micro scale <1.7,2,1.7> rotate <0,-90,0> translate <500,0,10> }
 
     // Ampli
 object { #include "Ampli guitare.inc" scale 1 rotate <0,90,0> translate <800,0,350> }

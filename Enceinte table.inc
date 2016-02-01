@@ -1,37 +1,7 @@
-#include "colors.inc"
-#include "textures.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc" 
 #include "T_materiaux.inc"
-//POINT DE VUE
-/*camera {
-        location <30,30,30>
-        look_at <0,10,0>
-        }
-           
-           
-      
-      
-           
-//LUMIERES      
-light_source {
-              <0,1000,-100>
-              color White
-              }
-light_source {
-              <0,1000,1000>
-              color White
-              }
-light_source {
-              <25,10,-52>
-              color White
-              } */
+                      
 
-             
-                                             
-//MATERIAUX 
               
         //Objets de base               
 #declare Cone_base = object{ Round_Cone( <0,0,0>,0.5, <0,2,0>, 0.1, 0.05, 0) scale <10,10,10> }
@@ -50,12 +20,6 @@ light_source {
 
 
 
-
-
-
-//TEXTURES: couleurs de l'objet, réflection... etc
-
-                                   
                                     
                   
 
@@ -102,14 +66,6 @@ light_source {
                                }
                     
                      
-
-//MIS EN PLACE
-object { Enceinte_table }
-
-// Sol 
-//plane {y, -1 pigment {Gray50}}
-       
-
 
 
 

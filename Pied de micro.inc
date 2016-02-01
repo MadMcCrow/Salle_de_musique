@@ -1,5 +1,6 @@
 #include "T_materiaux.inc"
 #include "shapes.inc"
+#include "Micro.inc"
 
 
             
@@ -30,12 +31,7 @@
                                             object { torus { 4, 0.2} texture { T_Pied_micro } translate <-1,100.75,-1>}
                                             translate <0,0,1>
                                             }
-#declare Pied_micro_micro = union{ 
-                                    object { cylinder { <0,0,0> <0,3,0> 0.7 } texture { pigment { rgb 0.7} } }
-                                    object { cylinder { <0,0,0> <0,7,0> 2 } texture { pigment { rgb 0.1} } translate <0,3,0>  }
-                                    object { Round_Cylinder ( <0,0,0> <0,4,0> 1.7,0.5,0 ) texture { pigment { checker color White color Black} scale 0.2 } translate <0,10,0>  }
-                                    rotate <-90,90,0>
-                                  }
+
 
 
         //Objets invisibles qui vont permettrent de  créer les creux/relief...
@@ -81,6 +77,6 @@
                              object {Pied_micro_haut }
                              union {                      
                              object {Pied_micro_perche }
-                             object {Pied_micro_micro  translate <8,84,0> }
+                             object {Micro  translate <8,84,0> }
                              rotate <90,-15,90> translate <0,117,-34>}
                             }                            

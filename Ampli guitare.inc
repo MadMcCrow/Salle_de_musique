@@ -1,37 +1,6 @@
-#include "colors.inc"
-#include "textures.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc"
- 
-
-//POINT DE VUE
-/*camera {
-        location <50,60,-60>
-        look_at <26,22,18.5>
-        }
+#include "T_materiaux.inc"
            
-           
-      
-      
-           
-//LUMIERES      
-light_source {
-              <0,1000,-100>
-              color White
-              }
-light_source {
-              <0,1000,1000>
-              color White
-              }
-light_source {
-              <25,10,-52>
-              color White
-              } */
-
-             
-                                             
 //MATERIAUX 
               
         //Objets de base               
@@ -60,14 +29,7 @@ light_source {
 
         //Texte
 #declare Text =  text {ttf "timrom.ttf" "Amp 66" 0.5, 0 scale 3  }
-
-
-
-
-
-//TEXTURES: couleurs de l'objet, réflection... etc
-
-                                    
+  
                   
 
 //ASSEMBLAGE DE L'AMPLI
@@ -85,30 +47,19 @@ light_source {
                         object {Poignet_boite translate <29,44,15> texture {Gris_metal} }
                         
                         difference {
-                                    object {Poignet_cylindre1 translate <25,44,15> texture {Cuir} }
-                                    object {Poignet_cylindre2 translate <25,44,14.99999> texture {Cuir} }
+                                    object {Poignet_cylindre1 translate <25,44,15> texture {T_Cuir_Ampli} }
+                                    object {Poignet_cylindre2 translate <25,44,14.99999> texture {T_Cuir_Ampli} }
                                     }
                       }
-                object {Bouton translate <46,38,24> texture {pigment {Black} } }
-                object {Bouton translate <42,38,24> texture {pigment {Black} } }   
-                object {Bouton_repere1 translate <46,44.5,24> texture {Blanc}  }
-                object {Bouton_repere2 translate <42,44.5,24> texture {Blanc} }
+                object {Bouton translate <46,38,24> texture {T_Plastic_NOIR } }
+                object {Bouton translate <42,38,24> texture {T_Plastic_NOIR } }   
+                object {Bouton_repere1 translate <46,44.5,24> texture {T_Plastic_BLANC} }
+                object {Bouton_repere2 translate <42,44.5,24> texture {T_Plastic_BLANC} }
                 
                 object {Grille translate <2,2,1.5> texture {texture_Grille2} } 
                 
-                object {Text translate <4,38,1.2> texture {Cuir} }
+                object {Text translate <4,38,1.2> texture {T_Cuir_Ampli} }
                  }
                              
-
-//MIS EN PLACE
-object { Ampli } 
-
-// Sol
-//plane {y, -1 pigment {Gray50}}
-       
-
-
-
-
 
            

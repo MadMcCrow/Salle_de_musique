@@ -18,6 +18,9 @@
 #declare T_Plastic_BLANC = texture{ pigment{ color rgb< 1, 1, 1>*0.9}   finish {ambient 0.01 phong 0.9 diffuse 0.9 } } 
 
 
+
+
+
 //piano de dos
 
 #declare T_piano_bois = texture { pigment {DMFWood5} finish {ambient 0.1 phong 1 diffuse 0.9 } }
@@ -25,9 +28,9 @@
         
 //Ampli
 #declare Gris = pigment {rgbf < 0.5,0.5,0.5> }  
-#declare Ampli_peau =texture { pigment {rgbf < 0.05,0.05,0.05> }   normal { marble 1.5 scale 0.8 turbulence 1.0}}
+#declare Ampli_peau =texture { pigment {rgbf < 0.05,0.05,0.05> }   normal { marble 1.5 scale 0.8 turbulence 1.0} finish {ambient 0.01 diffuse 0.9 phong 0.01  crand 0.05  }}
 #declare Gris_metal = texture {pigment {rgbf < 0.3,0.3,0.3> } finish {ambient 0.1 diffuse 0.9 phong 1 }   } 
-#declare Cuir = texture { pigment {rgbf <0.5,0.35,0.1>} normal { bozo 3.00 scale 0.1} }
+#declare T_Cuir_Ampli = texture { pigment {rgbf <0.5,0.35,0.1>} normal { bozo 3.00 scale 0.1} }
 #declare texture_Grille2 = pigment{ checker color White color Black scale 0.3 } 
 #declare Blanc = pigment {White}
 
@@ -72,11 +75,17 @@
 
 //pied de micro 
 
-
-
 #declare T_Pied_micro = texture { pigment { rgb <1,1,1>*0.1 } } 
                                                                 
-                                                                
+
+//micro
+
+#declare T_Metal_Gris_clair = texture {   pigment { rgbf <0.3,0.3,0.3> } normal { bumps 0.01 scale 0.05 } finish {ambient 0.001 phong 0.5 diffuse 0.4 reflection 0.1} }
+#declare T_Metal_Gris_fonce = texture {    normal { bumps 0.01 scale 0.05 } finish {ambient 0.001 phong 0.5 diffuse 0.4 reflection 0.1} } 
+#declare T_Micro_grill = texture { pigment { checker color Black color rgb<0.8,0.8,0.8> scale 0.2 } finish {ambient 0.001 phong 0.5 diffuse 0.4 reflection 0.01} }       
+
+
+
 
 //enceinte 
 #declare T_Gris_clair = texture { pigment { rgbf <0.3,0.3,0.3> } finish {ambient 0.01 phong 0.05 diffuse 0.4 } }
