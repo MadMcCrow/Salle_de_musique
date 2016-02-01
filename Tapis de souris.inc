@@ -26,20 +26,18 @@ light_source {
               
         //Objets de base 
         
-#declare Tapie = object { Round_Box (<0,0,0> <15,1,15>,0.25,0) texture {T_Tapie_souris} }
+#declare Tapis = object { Round_Box (<0,0,0> <15,1,15>,0.25,0) texture {T_Tapis_souris} }
 #declare Contour_Tapie = object { Round_Box (<0,0,0> <15.1,0.9,15.1>,0.25,0) texture {T_TissuNoir } } 
 
                                   
                   
 
 //ASSEMBLAGE DU TAPIE DE SOURIS 
-#declare Tapie_souris = union { 
-                                object { Tapie }
+#declare Tapis_souris = union { 
+                                object { Tapis }
                                 object { Contour_Tapie translate <-0.05,0.05,-0.05>}
                                 }
 
-//MIS EN PLACE
-object { Tapie_souris scale <0,0.4,0> } 
-              
+
 // Sol
 //plane {y, -1 pigment {Gray50}}
