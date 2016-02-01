@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "colors.inc"
 #include "textures.inc"
 #include "shapes.inc"
@@ -7,6 +8,18 @@
 #include "T_materiaux"
 
 #include "wooden floor.inc"
+=======
+#include "Souris.inc"
+#include "Pied de micro.inc"
+#include "Fauteuil.inc"
+#include "Casque.inc"
+#include "clavier-piano.inc"
+#include "Enceinte.inc"
+#include "T_materiaux.inc"
+#include "Table.inc"
+#include "imac.inc"
+#include "Tapis de souris.inc"
+>>>>>>> origin/master
 
         //Hauteur de la structure
 #declare H = 400;
@@ -224,21 +237,26 @@ union {
     //Table
     union { 
         union{
+<<<<<<< HEAD
 object { #include "Table.inc"  rotate <0,-80,0> translate <300,0,-50> }
 object { #include "imac.inc" scale 1 rotate <0,20,0> translate <230,72,50> }
+=======
+object { Table scale 1 rotate <0,-80,0> translate <300,0,-50> }
+object { Imac scale 1 rotate <0,20,0> translate <230,72,50> }
+>>>>>>> origin/master
 object { #include "clavier-piano.inc" scale 1 rotate <0,20,0> translate <210,72,-10> }
 object { #include "Enceinte table.inc" scale 1.2 rotate <0,140,0> translate <290,71,15> }
-object { #include "Tapis de souris.inc" scale <1.5,1,1.5> rotate <0,100,0> translate <285,70.5,-15> }
-object { #include "Souris.inc" scale 2 rotate <0,150,0> translate <295,67,-30> }
+object { Tapis_souris scale <1.5,1,1.5> rotate <0,100,0> translate <285,70.5,-15> }
+object { Souris scale 2 rotate <0,150,0> translate <295,67,-30> }
              }
              
         union{
-object { #include "Table.inc" scale 1 rotate <0,-85,0> translate <411,0,-30> }
-object { #include "imac.inc" scale 1 rotate <0,-5,0> translate <320,72,40> }
+object { Table scale 1 rotate <0,-85,0> translate <411,0,-30> }
+object { Imac scale 1 rotate <0,-5,0> translate <320,72,40> }
 object { #include "clavier-piano.inc" scale 1 rotate <0,0,0> translate <310,72,-12> }
 object { #include "Enceinte table.inc" scale 1.2 rotate <0,120,0> translate <390,71,35> }
-object { #include "Tapis de souris.inc" scale <1.5,1,1.5> rotate <0,100,0> translate <385,70.5,15> }
-object { #include "Souris.inc" scale 2 rotate <0,170,0> translate <395,67,0> }
+object { Tapis_souris scale <1.5,1,1.5> rotate <0,100,0> translate <385,70.5,15> }
+object { Souris scale 2 rotate <0,170,0> translate <395,67,0> }
              } 
              
         union{

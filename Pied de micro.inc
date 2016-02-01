@@ -1,33 +1,8 @@
-#include "colors.inc"
-#include "textures.inc"
+#include "T_materiaux.inc"
 #include "shapes.inc"
-#include "metals.inc"
-#include "glass.inc"
-#include "woods.inc"
 
-//POINT DE VUE
-//camera {
-   //     location <-250,140,00>
-     //   look_at <0,95,0>
-       // }
-           
-           
-           
-           
-//LUMIERES                                                                                                               
 
-/*light_source {
-              <100,1000,-100>
-              color White
-              }
-light_source {
-              <0,10,-100>
-              color White
-              } */
-                                                                          
-
-              
-        //Objets de base               
+            
 #declare Pied_micro_pied = object { cylinder { <0,0,0> <0,20,0> 0.8 } texture {T_Pied_micro} rotate <-65,0,0> }
 #declare Pied_micro_pied_embout = object { cylinder { <0,0,0> <0,2,0> 1.2 }  texture {pigment {Black}} rotate <-65,0,0> }
 #declare R = 3 ;
@@ -66,15 +41,6 @@ light_source {
         //Objets invisibles qui vont permettrent de  créer les creux/relief...
 #declare V_Sphere_pieds = object { box { <0,0,0> <10,10,10> }  texture {T_Pied_micro} }
 
-
-
-
-
-
-
-                                   
-                                    
-                  
 
 //ASSEMBLAGE DU PIED 
 
@@ -118,9 +84,3 @@ light_source {
                              object {Pied_micro_micro  translate <8,84,0> }
                              rotate <90,-15,90> translate <0,117,-34>}
                             }                            
-
-//MIS EN PLACE
-object { Pied_micro } 
-
-// Sol
-//plane {y, -1 pigment {Gray50}}
