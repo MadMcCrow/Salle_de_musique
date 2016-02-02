@@ -12,7 +12,6 @@
 #include "Tapis de souris.inc"
 #include "Ampli guitare.inc"
 #include "Guitare.inc"
-
 #include "T_materiaux.inc"
 
         //Hauteur de la structure
@@ -21,32 +20,36 @@
 #declare R = 2 ;
         //Epaisseur de la fenetre
 #declare E = 10 ;
-
-//CAMERA ET SCENE
-
-camera { perspective location <-800,200,-1300>   right     x*image_width/image_height look_at <700,100,600> angle 60 }  
-                                                                                                                                                          
-// set global atmospheric fog effect in the scene.
-// at the fog distance, there will be 63% visibility
- fog {
-  fog_type 1               // 1=constant, 2=ground_fog
-  distance 9000
-  color Gray               // can also have 'filter' and 'transmit'
-  // (---turbulence---)
-  //turbulence <0.5, 0.5, 1.0>
-  //turb_depth 0.5
-  //omega 0.5
-  //lambda 2.0
-  //octaves 6
-  // (---ground fog---)
-  //fog_offset 0.5         // height of constant fog
-  //fog_alt 0.5            // at fog_offset+fog_alt: density=25%
-}
+//----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------   CAMERA LUMIERES  SCENE     -----------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------  
 
 
+camera { perspective location <-600,200,-10>   right     x*image_width/image_height look_at <700,100,600> angle 60 }  
 
-        
-//LUMIERES
+// sky ---------------------------------------------------------------
+plane{<0,1,0>,1 hollow  
+       texture{ pigment{ bozo turbulence 0.92
+                         color_map { [0.00 rgb <0.25, 0.35, 1.0>*0.7]
+                                     [0.50 rgb <0.25, 0.35, 1.0>*0.7]
+                                     [0.70 rgb <1,1,1>]
+                                     [0.85 rgb <0.25,0.25,0.25>]
+                                     [1.0 rgb <0.5,0.5,0.5>]}
+                        scale<1,1,1.5>*2.5  translate< 0,0,0>
+                       }
+                finish {ambient 1 diffuse 0} }      
+       scale 10000}
+// fog on the ground ------------------------- end of sky with clouds
+fog { fog_type   2
+      distance   1000
+      color      White*0.5  
+      fog_offset 0.1
+      fog_alt    2.0
+      turbulence 1.8
+    }
+//------------------------------------------------- end of ground fog
+    
+
 
 light_source {
            <0,1000,0>
@@ -63,13 +66,13 @@ light_source {
            color White
              }
 
-//TEXTURES
-
-#declare T_Mur = texture { pigment { White } }
-#declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } }
 
 
-//MESHS 
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------   MESHS     -----------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------  
 
 
         
@@ -218,9 +221,9 @@ light_source {
 
                               
                  
-                
-//MIS EN SCENE
- 
+//----------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------  MISE EN SCENE     -------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------                  
  
     //Murs 
 object { Murs translate <-300,0,600> }

@@ -158,4 +158,11 @@
 #declare T_woodenfloor3= texture{ T_Wood3     
                 finish { diffuse 1.2 phong 1 } 
                 rotate<0,0,0> scale 0.5 translate<0,0,0>
-              } // end of texture                                                                                                                                                    
+              } // end of texture  
+              
+//scène finale
+
+
+#declare T_Mur = texture { pigment { White } finish {ambient 0.01 diffuse 0.9 }  }
+#declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } finish {ambient 0.01 diffuse 0.9 } }
+                                                                                                                                                                
