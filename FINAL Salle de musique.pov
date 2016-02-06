@@ -66,6 +66,14 @@ light_source {
            color White
              }
 
+#declare      material{   //-----------------------------------------------------------
+        texture { pigment{ rgbf <0.98, 0.98, 0.98, 0.9> }
+                  finish { diffuse 0.1 reflection 0.2  
+                          specular 0.8 roughness 0.0003 phong 1 phong_size 400}
+                } // end of texture -------------------------------------------
+        interior{ ior 1.5 caustics 0.5
+                } // end of interior ------------------------------------------
+      } // end of material ----------------------------------------------------
 
 
 
@@ -84,7 +92,7 @@ light_source {
 #declare V_mur = object { box { <0,0,0> <200,H-60,100> } }
 
             //FENETRE
-#declare Verre_fenetre = object { box { <0,0,0> <200,H-60,E> } texture { Glass }}  
+#declare Verre_fenetre = object { box { <0,0,0> <200,H-60,E> } material { T_Glass }}  
 
 #declare Articulation_fenetre = object { cylinder { <0,0,0> <0,200,10-E> R } rotate <0,0,90> }
 #declare Contour_fenetre_L = object { Round_Box ( <0,0,0> <E,H-60,E> 0.125,0 ) }
