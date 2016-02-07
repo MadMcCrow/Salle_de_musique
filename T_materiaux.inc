@@ -23,7 +23,7 @@
 
 //piano de dos
 
-#declare T_piano_bois = texture { pigment {DMFWood5} finish {ambient 0.1 phong 1 diffuse 0.9 } }
+#declare T_piano_bois = texture { pigment {DMFWood5} finish {ambient 0.1 phong 1 diffuse 0.9  } }
 #declare T_piano_interieur = texture { pigment {DMFWood4} finish {ambient 0.1 phong 1 diffuse 0.9 } }
         
 //Ampli
@@ -52,7 +52,7 @@
                  }
 #declare T_Metal = texture{ Chrome_Metal
                    normal { bumps 0.01 scale 0.05 } 
-                   finish { phong 1 brilliance 2 }
+                   finish { phong 1  specular 0.5 }
 } 
 
 //enceinte bizarre de table
@@ -162,7 +162,20 @@
               
 //scène finale
 
-
+//bongos..
 #declare T_Mur = texture { pigment { White } finish {ambient 0.01 diffuse 0.9 }  }
 #declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } finish {ambient 0.01 diffuse 0.9 } }
-                                                                                                                                                                
+
+#declare T_Wood = texture {         
+    average
+    texture_map {
+      [0.6  Rosewood   scale 0.5  normal { wood 0.5 scale 0.1 turbulence 0.1} finish {ambient 0.1 phong 1.0 diffuse 0.9 specular 0.3 }]     // weighting 1.0
+      [0.8  pigment{rgb <0.7,0.2,0.2>}                                        finish {ambient 0.0 phong 1.2 diffuse 0.9 specular  4.5}]     // weighting 0.5
+    } 
+    } 
+    
+#declare T_leatherskin = texture { pigment{ color rgb<1,1,1>*0.8}  normal { ripples 0.2 sine_wave  frequency 20 scale 1.0  translate<0,0.5,0> } finish { diffuse 0.9 specular 0.3 }   }
+ 
+
+ 
+                                                                         
