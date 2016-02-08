@@ -8,20 +8,7 @@
 global_settings{ assumed_gamma 1.0 }
 #default{ finish{ ambient 0.1 diffuse 0.9 }} 
 //--------------------------------------------------------------------------
-#include "colors.inc"
-#include "textures.inc"
-#include "glass.inc"
-#include "metals.inc"
-#include "golds.inc"
-#include "stones.inc"
-#include "woods.inc"
-#include "shapes.inc"
-#include "shapes2.inc"
-#include "functions.inc"
-#include "math.inc"
-#include "transforms.inc" 
-
-
+#include "bongo.inc"
 #include "T_materiaux.inc"
 //--------------------------------------------------------------------------
 // camera ------------------------------------------------------------------
@@ -65,45 +52,4 @@ plane{ <0,1,0>, 0
 //---------------------------- objects in scene ----------------------------
 //---------------------------------------------------------------------------
 
-
-#declare Tome_wood =  object{//Round_Cone( point A, radius A, point B, radius B, rounding radius, merge on) 
-         Round_Cone( <0,0,0>, 0.40    , <0,1.20,0>, 0.70 , 0.15, 0)  
-         
-         texture{ T_Wood
-                }
-       } // ----------------------------------------------------------- end Round_Cone 
-
-#declare Middle_bar = object{
-        Round_Box(<0,0.5,-0.25>,<1.5,1,0.25>, 0.05   , 0)  
-         
-        texture{T_Wood
-                }
-        
-      } 
-
-#declare Skin = object{ object {  Round_Cylinder  (<0,1 , 0>, <0,1.5,0>, 0.65 ,       0.20,   1)  texture{T_leatherskin }}} 
-#declare Metal_ring_top = object { Round_Cylinder   (<0,1.1,0>, <0,1.3,0>, 0.75,       0.05,   1)  
-         
-         texture{ T_Metal
-                }
-         
-       
-       }
-#declare Metal_ring_bottom = object { cylinder   {<0,0,0>, <0,1,0>, 0.45}  
-         
-         texture{T_Metal
-                }
-         
-       }        
-
-#declare Tome = object{ merge { 
-        object{Tome_wood}
-object{Skin}
-object{Metal_ring_top}
-object{Metal_ring_bottom}
-
-        }
-      }  
-      
-#declare Bongos = object{ merge {   object{Middle_bar} object {Tome } object {Tome translate x*1.6}}}
 object {Bongos}
