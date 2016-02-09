@@ -15,25 +15,142 @@
 #include "T_materiaux.inc"
 
         //Hauteur de la structure
-#declare H = 400;
+#local H = 400;
         //Rayon des articulations
-#declare R = 2 ;
-        //Epaisseur de la fenetre
-#declare E = 10 ;
+#local R = 2 ;
+        //Epaisseur de la fenetre                                                         
+        s
+#local E = 10 ;                 
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------   ROOM         -------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
+#local R_height = 400;
+#local R_depth_1 = 1200;
+#local R_depth_2 = 1000;
+#local R_width = 1200;
+
+#declare Room_element_box = object {box { <0,-1,0>          , < R_width,R_height+1,R_depth_1>          }    texture {T_Mur}     }
+#declare Room_ground_box  = object {box { <0,-2,0>          , < R_Width,0,R_depth_1>                   }    texture {T_Sol}     }
+#declare Room_plafond_box = object {box { <0,,R_height,0>   , < R_Width+2,R_depth_1>                   }    texture {T_Plafond} }
+#declare V_Room_edge_box  = object {box { <0,0,0>           ,< R_Width,R_height,R_depth_1 - R_depth_2> } rotate y*45 scale <2,2,2> translate <R_width, 0, R_depth2}
+#declare Room             = object { difference  {
+                                                 object {Room_element_box}
+                                                 object {Room_ground_box}
+                                                 object {Room_plafond_box}
+                                                 object {V_Room_edge_box}
+                                                 }
+                                                 
+                                      hollow}
+
+
+/*
+#declare Mur = object { box { <0,0,0> <1000,H,50> } }
+#declare Mur_Joint = object { box { <0,0,0> <220,H,50> } }                           
+#declare plafond = object { box { <0,0,0> <1206,0,1206> } }
+
+#declare V_mur = object { box { <0,0,0> <200,H-60,100> } }
+ 
+#declare Murs = union {    
+
+                difference{
+                
+                object { Mur texture {T_Mur} }
+                 
+                object { V_mur texture {T_Mur} translate <450,40,-0.01> }
+                object { V_mur texture {T_Mur} translate <750,40,-0.01> }
+                 
+                } 
+                 
+                
+                object { Mur texture {T_Mur} rotate <0,90,0> translate <1150,0,-150>}
+                
+                
+                difference {
+                
+                object { Mur_Joint texture {T_Mur} rotate<0,45,0> translate <1000,0,0>}
+                
+                object { V_mur texture {T_Mur} rotate<0,45,0> translate <1010,40,-10.01>}
+                }
+                
+                object { plafond texture {T_Mur} translate <0,H,-1150>}
+                object { plafond texture {T_woodenfloor} translate <0,0,-1150> }
+                 
+                }
+#declare fenetre = union { 
+                   object { Verre_fenetre translate <750,40,40> }
+
+                           union { 
+                           
+                                 union{
+                                 #local Nr = 1;     
+                                 #local EndNr = 4; 
+                                 #while (Nr<= EndNr) 
+                                 object { Articulation_fenetre translate <950,((((H-60)/4)*Nr)+(40-(R/2)))+5,40> texture { T_Mur} }  
+                                 #local Nr = Nr + 1;  
+                                 #end }
+                                 
+                                 object { Contour_fenetre_l texture { T_Mur } translate <750,39,40-R> }
+                                 object { Contour_fenetre_l texture { T_Mur } translate <750,H-31,40-R> }
+                                 
+                                 object { Contour_fenetre_L texture { T_Mur } translate <749,40,40-R> }
+                                 object { Contour_fenetre_L texture { T_Mur } translate <951-E,40,40-R> }
+                                 
+                                 object { Contour_fenetre_L texture { T_Mur } translate <850-E,40,40-R> }
+                                 object { Contour_fenetre_L texture { T_Mur } translate <850,40,40-R> }
+                                 
+                                 object { Loquet_fenetre texture { T_Mur} translate <851,40,40-R> }
+                                 object { Verrou_fenetre1 texture { T_Mur} translate <851,150,40-R> }
+                                 object { Verrou_fenetre2 texture { T_Mur} translate <851,157.5,34> }
+                                 object { Verrou_fenetre3 texture {T_Mur} translate <851,157.5,32> }
+                                 }    
+                
+                } 
+
+
+#declare Room = box  
+
+ 
+    //Murs 
+object { Murs translate <-300,0,600> }
+
+    //fenêtre
+object { fenetre translate <-300,0,610-E> }
+object { fenetre translate <-600,0,610-E> }
+object { fenetre translate <-665,1,930> rotate <0,45,0> }
+
+    //Rideaux
+object { Rideaux translate <1000,H,590> }  
+
+
+
+    //Exterieur
+//object { exterieur scale <2,2,0> translate <0,0,1500> }    
+   
+   
+   
+   */
+    //OBJET IMPORTEE!!!!
 //----------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------   CAMERA LUMIERES  SCENE     -----------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------  
 // atmospheric media can be generated by adding a media statement
 // to the scene not attached to any specific object
 
-media {    // atmospheric media sample
-  intervals 100
-  scattering { 1, rgb 0.03 }
-  samples 1, 10
-  confidence 0.9999
-  variance 1/1000
-  ratio 0.9
-}
+box{
+   <-600,200,-10>, <1200, 400, 1200>
+   pigment { rgbt 1 } // clear
+   hollow
+   interior{
+     media{
+       scattering{ 1, 0.17 extinction 0.01}
+       samples 100, 500  // min, max
+     } // end media
+   } // end interior
+ } // end box
+
 
 
 camera { perspective location <-600,200,-10>   right     x*image_width/image_height look_at <700,100,600> angle 60 }  
@@ -57,7 +174,7 @@ sky_sphere{ pigment{ bozo turbulence 0.92
 
 //light_source { <0,1000,0>   color White }        
 //light_source {<0,500,700>   color White }
-//light_source {<00,390,-50>  color White }
+light_source {<00,390,-50>  color White }
 light_source { <1000,1000,1000>   color White }        
 
 #declare T_Glass =  material{   //-----------------------------------------------------------
@@ -79,11 +196,7 @@ light_source { <1000,1000,1000>   color White }
 
         
             //MUR
-#declare Mur = object { box { <0,0,0> <1000,H,50> } }
-#declare Mur_Joint = object { box { <0,0,0> <220,H,50> } }                           
-#declare plafond = object { box { <0,0,0> <1206,0,1206> } }
 
-#declare V_mur = object { box { <0,0,0> <200,H-60,100> } }
 
             //FENETRE
 #declare Verre_fenetre = object { box { <0,0,0> <200,H-60,E> } material { T_Glass }}  
@@ -149,61 +262,7 @@ light_source { <1000,1000,1000>   color White }
 
 //ASSEMBLAGE
 
-#declare Murs = union {    
 
-                difference{
-                
-                object { Mur texture {T_Mur} }
-                 
-                object { V_mur texture {T_Mur} translate <450,40,-0.01> }
-                object { V_mur texture {T_Mur} translate <750,40,-0.01> }
-                 
-                } 
-                 
-                
-                object { Mur texture {T_Mur} rotate <0,90,0> translate <1150,0,-150>}
-                
-                
-                difference {
-                
-                object { Mur_Joint texture {T_Mur} rotate<0,45,0> translate <1000,0,0>}
-                
-                object { V_mur texture {T_Mur} rotate<0,45,0> translate <1010,40,-10.01>}
-                }
-                
-                object { plafond texture {T_Mur} translate <0,H,-1150>}
-                object { plafond texture {T_woodenfloor} translate <0,0,-1150> }
-                 
-                }
-#declare fenetre = union { 
-                   object { Verre_fenetre translate <750,40,40> }
-
-                           union { 
-                           
-                                 union{
-                                 #local Nr = 1;     
-                                 #local EndNr = 4; 
-                                 #while (Nr<= EndNr) 
-                                 object { Articulation_fenetre translate <950,((((H-60)/4)*Nr)+(40-(R/2)))+5,40> texture { T_Mur} }  
-                                 #local Nr = Nr + 1;  
-                                 #end }
-                                 
-                                 object { Contour_fenetre_l texture { T_Mur } translate <750,39,40-R> }
-                                 object { Contour_fenetre_l texture { T_Mur } translate <750,H-31,40-R> }
-                                 
-                                 object { Contour_fenetre_L texture { T_Mur } translate <749,40,40-R> }
-                                 object { Contour_fenetre_L texture { T_Mur } translate <951-E,40,40-R> }
-                                 
-                                 object { Contour_fenetre_L texture { T_Mur } translate <850-E,40,40-R> }
-                                 object { Contour_fenetre_L texture { T_Mur } translate <850,40,40-R> }
-                                 
-                                 object { Loquet_fenetre texture { T_Mur} translate <851,40,40-R> }
-                                 object { Verrou_fenetre1 texture { T_Mur} translate <851,150,40-R> }
-                                 object { Verrou_fenetre2 texture { T_Mur} translate <851,157.5,34> }
-                                 object { Verrou_fenetre3 texture {T_Mur} translate <851,157.5,32> }
-                                 }    
-                
-                } 
                 
 #declare Rideaux = union {
                            object { Barre_rideau1 texture { Polished_Chrome } translate <0,-15,-200> }
@@ -226,22 +285,7 @@ light_source { <1000,1000,1000>   color White }
 //----------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------  MISE EN SCENE     -------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------                  
- 
-    //Murs 
-object { Murs translate <-300,0,600> }
 
-    //fenêtre
-object { fenetre translate <-300,0,610-E> }
-object { fenetre translate <-600,0,610-E> }
-object { fenetre translate <-665,1,930> rotate <0,45,0> }
-
-    //Rideaux
-object { Rideaux translate <1000,H,590> } 
-
-    //Exterieur
-//object { exterieur scale <2,2,0> translate <0,0,1500> }    
-
-    //OBJET IMPORTEE!!!!
     
 union {    
     //Piano
@@ -312,7 +356,8 @@ object { Ampli scale 1 rotate <0,90,0> translate <800,0,350> }
 object { Guitare scale 1.7 rotate <0,90,-14> translate <800,0,380> }
         }
     //Plafond 
-object { plafond}
+
 
     //Sol
-//object { #include "wooden floor.inc" }
+
+
