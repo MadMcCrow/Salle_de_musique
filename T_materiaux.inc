@@ -110,75 +110,48 @@
 #declare T_Gris_Neutre = texture { pigment { rgbf <0.5,0.5,0.5> } finish {ambient 0.01 phong 0.05 diffuse 0.4 } }
 
 //Wooden Floor
-#declare T_woodenfloor1 = texture{ Tan_Wood     
-               normal { wood 0.5 scale 0.3 turbulence 0.1}
-                finish { phong 1 } 
-                rotate<60,0,45> scale 0.1
-                  
-              normal { pigment_pattern{
-                            average pigment_map{[1, gradient z sine_wave]
-                                                [1, gradient y scallop_wave]
-                                                [3, bumps  ]}
-                                         translate 0.02 scale 0.5}
-                                         2 
-                         rotate< 0,0,0> scale 0.15 }
-               
-              }  
 
-#declare board_length = 1.5*2;
-#declare board_width = 0.25*2; 
-#declare board_offset = 0.8*2;
 
-#declare T_woodenfloor2= texture{ pigment { gradient y
-                pigment_map { [ 0.0 light_wood ]
-                              [ 1.0 dark_wood ] }
+#local board_length = 1.5*2;
+#local board_width = 0.25*2; 
+#local board_offset = 0.8*2;
+
+#declare T_woodenfloor = texture{ pigment { gradient y
+                pigment_map { [ 0.0 DMFWood3 scale 0.5 ]
+                              [ 0.5 DMFWood1 scale 0.7 ] }
                 warp { repeat board_length *z offset 0.28*y }
                 warp { repeat board_width*x offset board_offset } }
-      normal {	quilted 0.25 
+      normal {	quilted 0.10 
                 control0 0.0
-                control1 0.66
-                bump_size 0.25
+                control1 0.5
+                bump_size 0.15
                 scale <board_width,1,board_length>
                 warp { repeat board_length *z  }
                 warp { repeat board_width*x offset board_length*1.5*z } }
-      finish { phong 1 }  }
+        }
       
-      
-#declare T_woodenfloor= texture{ T_Wood3  scale 0.1
-      normal {	quilted 0.25 
-                control0 0.0
-                control1 0.66
-                bump_size 0.6
-                scale <board_width,1,board_length>
-                warp { repeat board_length *z  }
-                warp { repeat board_width*x offset board_length*1.5*z } }
-      finish { phong 1 }  }                        
-
-
-#declare T_woodenfloor3= texture{ T_Wood3     
-                finish { diffuse 1.2 phong 1 } 
-                rotate<0,0,0> scale 0.5 translate<0,0,0>
-              } // end of texture  
               
 //scène finale
 
-//bongos..
 #declare T_Mur     = texture { pigment {  rgb <0.95,0.95,0.95> }  normal { bumps 0.1 scale 0.1 } finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
-#declare T_Sol     = texture { pigment {  rgb <0.42,0.54,0.70> }  normal { pigment_pattern{ brick color rgb 0.2, color rgb 0.8   brick_size <2,1,1>   mortar     0.2  scale 1 }} finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
+#declare T_Sol     = texture {T_woodenfloor scale 4                                             finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
+
 #declare T_Plafond = texture { pigment {  rgb <1.00,1.00,1.00> }                                  finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
 
 #declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } finish {ambient 0.01 diffuse 0.9 specular 0.2} }
 
-#declare T_Wood = texture {         
+
+
+//bongos..
+#declare T_Wood = texture {  
     average
     texture_map {
       [0.6  Rosewood   scale 0.5  normal { wood 0.5 scale 0.1 turbulence 0.1} finish {ambient 0.1 phong 1.0 diffuse 0.9 specular 0.3 }]     // weighting 1.0
       [0.8  pigment{rgb <0.7,0.2,0.2>}                                        finish {ambient 0.0 phong 1.2 diffuse 0.9 specular  4.5}]     // weighting 0.5
     } 
     } 
-    
+   
 #declare T_leatherskin = texture { pigment{ color rgb<1,1,1>*0.8}  normal { ripples 0.2 sine_wave  frequency 20 scale 1.0  translate<0,0.5,0> } finish { diffuse 0.9 specular 0.3 }   }
  
 
               
-
