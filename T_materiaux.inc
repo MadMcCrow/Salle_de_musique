@@ -163,8 +163,11 @@
 //scène finale
 
 //bongos..
-#declare T_Mur = texture { pigment { White } finish {ambient 0.01 diffuse 0.9 }  }
-#declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } finish {ambient 0.01 diffuse 0.9 } }
+#declare T_Mur     = texture { pigment {  rgb <0.95,0.95,0.95> }  normal { bumps 0.1 scale 0.1 } finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
+#declare T_Sol     = texture { pigment {  rgb <0.42,0.54,0.70> }  normal { pigment_pattern{ brick color rgb 0.2, color rgb 0.8   brick_size <2,1,1>   mortar     0.2  scale 1 }} finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
+#declare T_Plafond = texture { pigment {  rgb <1.00,1.00,1.00> }                                  finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
+
+#declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } finish {ambient 0.01 diffuse 0.9 specular 0.2} }
 
 #declare T_Wood = texture {         
     average
@@ -177,5 +180,5 @@
 #declare T_leatherskin = texture { pigment{ color rgb<1,1,1>*0.8}  normal { ripples 0.2 sine_wave  frequency 20 scale 1.0  translate<0,0.5,0> } finish { diffuse 0.9 specular 0.3 }   }
  
 
- 
-                                                                         
+              
+
