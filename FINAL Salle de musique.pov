@@ -41,7 +41,7 @@ global_settings{ assumed_gamma 1.0 }
 #declare Room_ground_box   = object {box { <0,-2,0>          , < R_width,  0,          R_depth_1>          }    texture {T_Sol}     }
 #declare Room_plafond_box  = object {box { <0,R_height,0>    , < R_width,  R_height+2, R_depth_1>          }    texture {T_Plafond} }
 #declare V_Room_edge_box   = object {box { <0,-3,0>          , < R_width, R_height+3,  R_depth_1> } rotate <0,Angle,0> translate < R_width, 0, R_depth_2>   texture {T_Mur}}
-//#declare V_fenetre         = object {/* VASY WESH MET QUELQUECHOSE !!!!*/}
+#declare V_fenetre         = object {/* VASY WESH MET QUELQUECHOSE !!!!*/}
 #declare Room_interior_box = object { difference  {
                                                  object {Room_basebox_box }
                                                  object {V_Room_edge_box  }
@@ -57,6 +57,10 @@ global_settings{ assumed_gamma 1.0 }
                                                  object {V_fenetre        }
                                                   }
 
+/*
+#declare Mur = object { box { <0,0,0> <1000,H,50> } }
+#declare Mur_Joint = object { box { <0,0,0> <220,H,50> } }                           
+#declare plafond = object { box { <0,0,0> <1206,0,1206> } }
 
 #declare V_mur = object { box { <0,0,0> <200,H-60,100> } }
  
@@ -117,8 +121,6 @@ global_settings{ assumed_gamma 1.0 }
                 } 
 
 
-#declare Room = box  
-
  
     //Murs 
 object { Murs translate <-300,0,600> }
@@ -139,7 +141,6 @@ object { Rideaux translate <1000,H,590> }
    
    
 */ 
-object { Room }    
 
     //OBJET IMPORTEE!!!!
 //----------------------------------------------------------------------------------------------------------------------------
@@ -297,6 +298,10 @@ light_source { <1000,1000,1000>   color White }
 //----------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------  MISE EN SCENE     -------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------                  
+//salle en elle même
+object { Room }    
+
+
 /*    
 union {    
     //Piano
