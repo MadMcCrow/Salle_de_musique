@@ -140,7 +140,11 @@
 
 #declare T_rideau = texture { pigment { rgbf <1,1,1,0.5> } finish {ambient 0.01 diffuse 0.9 specular 0.2} }
 
-
+#declare T_Glass =  texture{ pigment{ rgbf <0.98, 0.98, 0.98, 0.95> *0.85}
+                finish { ambient 0.1 diffuse 0.1 reflection 0.2  
+                         specular 0.8 roughness 0.0003 phong 1 phong_size 400}
+               } 
+ 
 
 //bongos..
 #declare T_Wood = texture {  
