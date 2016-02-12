@@ -10,7 +10,7 @@
 #declare Ecran_surface1 = object { Round_Box ( <0,0,0> <61.999,38.999,0> 3,0 ) texture { T_Ecran_surface }                   translate <0,10,0>   }
 #declare Ecran_surface2 = object { box       { <0,0,0> <62,35,0> }           texture { T_Ecran_surface }                   translate <0,10,0>   }   
 #declare Logo           = object { box       { <0,0,0> <L,L,0>  }              texture { T_Logo }                                                 }
-#declare Ecran_ecran    = object { box       { <0,0,0> <58,33,0>  }            texture { T_ecran }                                                 }
+#declare Ecran_ecran    = object { box       { <0,0,0> <58,33,0>  }            texture { T_ecran }    no_shadow                                             }
 
 #declare Truc_chelou_base = object{ Round_Conic_Prism( 9.5, 9, 4, 8, 0.10, 0 ) rotate <180,0,0> }  
  

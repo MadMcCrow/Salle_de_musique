@@ -68,11 +68,10 @@
 
 //imac
 
-#declare T_Ecran_corps = texture { pigment { rgb <0.7,0.7,0.7> } }
+#declare T_Ecran_corps = texture {  pigment { rgb <0.7,0.7,0.7> } finish { phong 1 diffuse 0.4 specular 1 reflection { 0.0  0.1 fresnel on falloff 3.0 exponent 4.0 metallic 1.0}}scale 0.5} 
 #declare T_Ecran_surface = texture { pigment { Black } }
 #declare T_Logo  = texture { pigment {image_map {png "Apple.png" map_type 0 interpolate 2 }scale 5 } }
-#declare T_ecran = texture { pigment { image_map { png "Fond_ecran.png"interpolate 2 once} scale <58,33,10>}  }
-
+#declare T_ecran = texture { pigment { image_map { png "Fond_ecran.png"interpolate 2 once} scale <58,33,10> } finish {emission White }}                                                                                                                           
 //pied de micro 
 
 #declare T_Pied_micro = texture { pigment { rgb <1,1,1>*0.1 } } 
@@ -134,7 +133,7 @@
 //scène finale
 
 #declare T_Mur     = texture { pigment {  rgb <0.95,0.95,0.95> }  normal { bumps 0.1 scale 0.1 } finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
-#declare T_Sol     = texture {T_woodenfloor scale 4                                             finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
+#declare T_Sol     = texture {T_woodenfloor scale 40                                             finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
 
 #declare T_Plafond = texture { pigment {  rgb <1.00,1.00,1.00> }                                  finish {ambient 0.01 diffuse 0.9 specular 0.2}  }
 
