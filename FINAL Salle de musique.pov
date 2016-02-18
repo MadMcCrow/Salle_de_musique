@@ -176,10 +176,10 @@ global_settings{ assumed_gamma 1.0 }
 // to the scene not attached to any specific object
 
 
-camera { perspective location <10,160,10>
+camera { perspective location <200,160,10>
 right     x*image_width/image_height
-look_at <500,0,500> 
-angle 60 
+look_at <600,0,500> 
+angle 70 
 //  normal { ripples 0.2 }     // perturb the camera lens with a pattern
 
 // (---focal blur extras---)
@@ -332,7 +332,7 @@ light_source {<500,390,500>  0.80 media_interaction off }
 
                 
 #declare Rideaux = union {
-                           object { Barre_rideau1 texture { Polished_Chrome } translate <0,-15,-200>                            }
+                           object { Barre_rideau1 texture { Polished_Chrome } translate <00,00,800>                            }
                            object { Barre_rideau1 texture { Polished_Chrome } rotate <0,90,0> translate <-160,-15,-1130>        }
                            object { Barre_rideau2 texture { Polished_Chrome } rotate <0,45,0> translate <-160,-15,-160>         }
                            object { Rideau1       texture { T_rideau }        translate <-650,-R_height+5,0>                    }
@@ -352,11 +352,26 @@ light_source {<500,390,500>  0.80 media_interaction off }
 //----------------------------------------------------------------------------------------------------------------------------                  
 //salle en elle même 
 object { Room }
-    
-object { G_table_1  rotate <0,20*rand(Random_1),0>      translate <200,0,200> }
-object { G_table_2  rotate <0,20*rand(Random_2),0>      translate <400,0,200> }
-object { G_table_3  rotate <0,180+20*rand(Random_3),0>  translate <300,0,500> }
-object { G_table_4  rotate <0,180+20*rand(Random_4),0>  translate <500,0,500> }
+
+object { G_table_1  rotate <0,20*rand(Random_1),0>      translate <350,0,300> }
+object { G_table_2  rotate <0,20*rand(Random_2),0>      translate <550,0,300> }
+object { G_table_3  rotate <0,180+20*rand(Random_3),0>  translate <450,0,600> }
+object { G_table_4  rotate <0,180+20*rand(Random_4),0>  translate <650,0,600> }
+
+object { Piano  translate <250,0,800> }
+
+object { Fauteuil rotate <0,90,0>   translate <350,0,700> }
+object { Fauteuil rotate <0,-90,0>  translate <450,0,200> }
+object { Fauteuil rotate <0,-90,0>  translate <650,0,200> }
+object { Fauteuil rotate <0,90,0>   translate <550,0,700> }
+
+object { Pied_micro translate <750,0,500>}
+
+object { Guitare rotate <0,90,0> translate <1150,0,665> }
+object { Ampli   rotate <0,90,0> translate <1150,0,800> }
+
+object { Enceinte translate <370,110,800> }
+
 /*    
 union {    
     //Piano
@@ -379,7 +394,7 @@ object { Fauteuil scale <1,0.85,1> rotate <0,-290,0> translate <170,0,260> }
 object { Casque scale 2 rotate <90,70,-13> translate <300,131.5,375> }
 
 object { Fauteuil scale <1,0.85,1> rotate <0,-290,0> translate <260,0,290> }
-            }        
+            }                            
 } 
 
     //Pied de micro

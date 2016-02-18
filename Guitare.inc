@@ -162,5 +162,7 @@
                      
                     object { Bouton_guitare1 translate <10,10,-4> texture {T_Corps_contours} }
                     
-                    object { Bouton_guitare1 translate <12,15,-4> texture {T_Corps_contours} }
+                    object { Bouton_guitare1 translate <12,15,-4> texture {T_Corps_contours} } 
+                    
+                    scale 2 rotate <0,0,25>
                     }

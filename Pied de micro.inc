@@ -79,4 +79,4 @@
                              object {Pied_micro_perche }
                              object {Micro  translate <8,84,0> }
                              rotate <90,-15,90> translate <0,117,-34>}
-                            }                            
+                           scale 2 }                            

@@ -59,6 +59,7 @@
                 object {Grille translate <2,2,1.5> texture {texture_Grille2} } 
                 
                 object {Text translate <4,38,1.2> texture {T_Cuir_Ampli} }
+                scale 1.5
                  }
                              
 
