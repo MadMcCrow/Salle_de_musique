@@ -30,5 +30,5 @@
                                            }
                                     }  
       
-#declare Bongos = object{ merge {   object{Middle_bar} object {Tome } object {Tome translate x*1.6}}}
+#declare Bongos = object{ merge {   object{Middle_bar} object {Tome } object {Tome translate x*1.6}}scale 20}
 

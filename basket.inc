@@ -22,6 +22,7 @@ global_settings{ assumed_gamma 1.0 }
                                         object {foot  rotate y*(90*3+45) }
                                         object {foot  rotate y*(90*4+45) }
                         }
-                        texture {T_piano_bois}
-                        scale 2
+                        texture {T_piano_bois scale 2}
+                        scale 15  //bottom of the basket is at  25.5
                         }
+                        

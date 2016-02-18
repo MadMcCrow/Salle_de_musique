@@ -37,7 +37,6 @@ global_settings{ assumed_gamma 1.0 }
                      #end 
                     }
               }        
-        rotate<0,0,0>
-        scale 2
+        scale 12
 }
                               

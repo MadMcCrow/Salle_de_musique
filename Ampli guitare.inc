@@ -36,15 +36,15 @@
 #declare Ampli =union {
                 
                 difference {
-                            object {Corps_ampli texture {Ampli_peau} }
+                            object {Corps_ampli texture {T_Ampli_peau} }
                             
-                            object {V_Grille translate <2,2,-0.0001> texture {Ampli_peau} }
-                            object {V_Boutons translate <2,41.0001,21.0001> texture {Ampli_peau} } 
+                            object {V_Grille translate <2,2,-0.0001> texture {T_Ampli_peau} }
+                            object {V_Boutons translate <2,41.0001,21.0001> texture {T_Ampli_peau} } 
                              
                             }
                 union {
-                        object {Poignet_boite translate <15,44,15> texture {Gris_metal} } 
-                        object {Poignet_boite translate <29,44,15> texture {Gris_metal} }
+                        object {Poignet_boite translate <15,44,15> texture {T_Gris_metal} } 
+                        object {Poignet_boite translate <29,44,15> texture {T_Gris_metal} }
                         
                         difference {
                                     object {Poignet_cylindre1 translate <25,44,15> texture {T_Cuir_Ampli} }
@@ -56,7 +56,7 @@
                 object {Bouton_repere1 translate <46,44.5,24> texture {T_Plastic_BLANC} }
                 object {Bouton_repere2 translate <42,44.5,24> texture {T_Plastic_BLANC} }
                 
-                object {Grille translate <2,2,1.5> texture {texture_Grille2} } 
+                object {Grille translate <2,2,1.5> texture {T_texture_Grille2} } 
                 
                 object {Text translate <4,38,1.2> texture {T_Cuir_Ampli} }
                 scale 1.5
