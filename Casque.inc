@@ -64,6 +64,7 @@
  #declare Casque = union {
                             object { Ecouteur translate <0,3,0> }
                             object { Ecouteur scale <-1,1,1> translate <7,3,0> }
-                            object { Lien_casque }   
+                            object { Lien_casque }
+                            scale 2  
                          }
 

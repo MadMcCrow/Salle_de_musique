@@ -282,11 +282,10 @@ light_source {<500,390,500>  0.80 media_interaction off }
 #declare G_instrument_basket = union {
                                         object { basket }
                                         object {tambourin  rotate <45,0,0> translate <0,36,0> rotate y*180 translate <0,0,-13>}
-                                        object {Bongos    rotate y*23 translate <-23,21.5,28>}
+                                        object {Bongos     rotate y*23     translate <-23,21.5,28>}
                                      }
             //RIDEAU
-#declare Barre_rideau1 = object { cylinder { <0,0,0> <0,1200,0> 2 } rotate <0,0,90>} 
-#declare Barre_rideau2 = object { cylinder { <0,0,0> <0,300,0> 2 } rotate <0,0,90>}
+#declare Barre_rideau = object { cylinder { <0,0,0> <0,R_width_1,0> 2 } rotate <0,0,90> texture {pigment{Grey}}} 
 
 #declare Rideau1 = isosurface { 
                             function{  
@@ -295,9 +294,10 @@ light_source {<500,390,500>  0.80 media_interaction off }
                             threshold 0
                             contained_by {box {<0,-0.1,0>, < 10, 15, 10>}}
                             
-                            scale <8,15,38>
+                            scale <12,15,38>
                             rotate <-90, 0, 0>
-                            translate < 0.1, 1.7, 0>
+                            translate < 0.1, 1.7, 0> 
+                            texture { pigment { rgbf <1,1,1,0.5> } }
                             } 
 #declare Rideau2 = isosurface { 
                             function{  
@@ -309,6 +309,7 @@ light_source {<500,390,500>  0.80 media_interaction off }
                             scale <12,15,38>
                             rotate <-90, 0, 0>
                             translate < 0.1, 1.7, 0>
+                            texture { pigment { rgbf <1,1,1,0.5> } }
                             }
 #declare Rideau3 = isosurface { 
                             function{  
@@ -320,36 +321,9 @@ light_source {<500,390,500>  0.80 media_interaction off }
                             scale <20,15,38>
                             rotate <-90, 45, 0>
                             translate < 0.1, 1.7, 0>
-                            }
-#declare Rideau4 = isosurface { 
-                            function{  
-                            y - sin(x*1.2*pi)*0.1
-                            }
-                            threshold 0
-                            contained_by {box {<0,-0.1,0>, < 10, 15, 10>}}
-                            
-                            scale <18,15,38>
-                            rotate <-90, 90, 0>
-                            translate < 0.1, 1.7, 0>
+                            texture { pigment { rgbf <1,1,1,0.5> } }
                             }
      
-
-//ASSEMBLAGE
-
-
-                
-#declare Rideaux = union {
-                           object { Barre_rideau1 texture { Polished_Chrome } translate <00,00,800>                            }
-                           object { Barre_rideau1 texture { Polished_Chrome } rotate <0,90,0> translate <-160,-15,-1130>        }
-                           object { Barre_rideau2 texture { Polished_Chrome } rotate <0,45,0> translate <-160,-15,-160>         }
-                           object { Rideau1       texture { T_rideau }        translate <-650,-R_height+5,0>                    }
-                           object { Rideau2       texture { T_rideau }        translate <-450,-R_height+5,0>                    }
-                           object { Rideau3       texture { T_rideau }        translate <-300,-R_height+5,-0>                   }
-                           object { Rideau2       texture { T_rideau }        rotate <0,90,0> translate <-160,-R_height+5,-150> }
-                           object { Rideau4       texture { T_rideau }        translate <-160,-R_height+5,-300>                 }
-                           object { Rideau4       texture { T_rideau }        rotate <0,-90,0> translate <-1050,-R_height+5,0>  }
-                          
-                           }
                            
        
 //----------------------------------------------------------------------------------------------------------------------------
@@ -357,20 +331,29 @@ light_source {<500,390,500>  0.80 media_interaction off }
 //----------------------------------------------------------------------------------------------------------------------------                  
 //salle en elle même 
 object { Room }
-object { G_table_1  rotate <0,20*rand(Random_1),0>      translate <350,0,300> }
-object { G_table_2  rotate <0,20*rand(Random_2),0>      translate <500,0,300> }
-object { G_table_3  rotate <0,150+20*rand(Random_3),0>  translate <400,0,550> }
-object { G_table_4  rotate <0,180+20*rand(Random_4),0>  translate <600,0,550> }
-object { Piano  translate <250,0,800> }
-object { Fauteuil rotate <0,-90,0>  translate <420,0,200> }
-object { Fauteuil rotate <0,-90,0>  translate <580,0,200> }
-object { Fauteuil rotate <0,75,0>   translate <300,0,650> }
-object { Fauteuil rotate <0,90,0>   translate <550,0,650> }
-object { Pied_micro translate <750,0,500>}
-object { Guitare rotate <0,90,0> translate <1150,0,665> }
-object { Ampli   rotate <0,90,0> translate <1150,0,800> }
-object { Enceinte translate <370,110,800>   }
-object { G_instrument_basket rotate y*45 translate <900,0,300> }
+object { G_table_1           rotate <0,20*rand(Random_1),0>        translate <350,0,300>   }
+object { G_table_2           rotate <0,20*rand(Random_2),0>        translate <500,0,300>   }
+object { G_table_3           rotate <0,150+20*rand(Random_3),0>    translate <400,0,550>   }
+object { G_table_4           rotate <0,180+20*rand(Random_4),0>    translate <600,0,550>   }
+object { Piano                                                     translate <250,0,800>   }
+object { Fauteuil            rotate <0,-90,0>                      translate <420,0,200>   }
+object { Fauteuil            rotate <0,-90,0>                      translate <580,0,200>   }
+object { Fauteuil            rotate <0,75,0>                       translate <300,0,650>   }
+object { Fauteuil            rotate <0,90,0>                       translate <550,0,650>   }
+object { Pied_micro                                                translate <750,0,500>   }
+object { Guitare             rotate <0,90,0>                       translate <1150,0,665>  }
+object { Ampli               rotate <0,90,0>                       translate <1150,0,800>  }
+object { Enceinte                                                  translate <370,110,800> }
+object { G_instrument_basket rotate y*45                           translate <900,0,300>   }
+object { Casque              rotate <0,0,0>                        translate <400,70,200>  }
+object { Casque              rotate <0,0,0>                        translate <480,70,200>  }
+object { Casque              rotate <0,0,0>                        translate <300,70,650>  }
+object { Casque              rotate <0,0,0>                        translate <550,70,650>  }
+object { Barre_rideau        rotate <0,0,0>                        translate <1200,380,1180>}
+object { Barre_rideau        rotate <0,-125,0>                     translate <980,380,1200> }
+object { Rideau1             rotate <0,0,0>                        translate <750,0,1180>   }
+object { Rideau2             rotate <0,0,0>                        translate <350,0,1180>   }
+object { Rideau3             rotate <0,10,0>                       translate <1010,0,1160>  }
 
 
  box{ <0,0,0>, <1200, 500, 1200>
