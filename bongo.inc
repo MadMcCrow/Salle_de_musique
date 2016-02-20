@@ -14,7 +14,7 @@
 #declare tender_box        = object{ Round_Cone2( <0,0,0>, 0.70    , <0,1.00,0>, 0.40 , 0 )      texture{ T_Metal}  scale <1,-1,1>*0.15 rotate<0,0,-25> translate<0,0.9,0> }
 #declare tender_screw      = object{ cylinder { <0,0,0>,<0,9.00,0>, 0.4  scale <1,1,1>*0.05 rotate<0,0,0> translate<0.06,0.9,0> texture{ T_Metal}  }}
 #declare tender            = object{ union { object { tender_box} object { tender_screw}}}                        
-#declare Middle_bar        = object{ Round_Box(<0,0.5,-0.25>,<1.5,1,0.25>, 0.05   , 0)   texture{T_piano_bois }}
+#declare Middle_bar        = object{ Round_Box(<0,0.5,-0.25>,<1.8,1,0.25>, 0.05   , 0)   texture{T_piano_bois }}
 #declare Skin              = object{ object {  Round_Cylinder  (<0,1 , 0>, <0,1.5,0>, 0.65 ,       0.20,   1)  texture{T_leatherskin }}} 
 #declare Metal_ring_top    = object{ Round_Cylinder   (<0,1.1,0>, <0,1.3,0>, 0.75,       0.05,   1) texture{ T_Metal }}
 #declare Metal_ring_bottom = object{ cylinder   {<0,0,0>, <0,1,0>, 0.45}  texture{T_Metal }}
@@ -30,5 +30,5 @@
                                            }
                                     }  
       
-#declare Bongos = object{ merge {   object{Middle_bar} object {Tome } object {Tome translate x*1.6}}scale 20}
+#declare Bongos = object{ merge {   object{Middle_bar} object {Tome } object {Tome scale <1.2,1,1.2> translate x*1.8}}scale 25}
 

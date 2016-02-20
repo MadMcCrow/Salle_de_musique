@@ -39,7 +39,7 @@
 #declare T_Ecran_corps   = texture { pigment { rgb <0.7,0.7,0.7> } /*---------------------------------------------*/ finish {ambient 0.01 diffuse 0.8 specular 0.8 crand 0.02}}
 #declare T_Ecran_surface = texture { pigment { Black } /*---------------------------------------------------------*/ finish {ambient 0.01 diffuse 0.8 specular 0.3 }}
 #declare T_Logo          = texture { pigment {image_map {png "Apple.png" map_type 0 interpolate 2 }scale 5 }         finish {ambient 0.01 diffuse 0.8 specular 0.3 }}
-#declare T_ecran         = texture { pigment { image_map { png "Fond_ecran.png"interpolate 2 once} scale <58,33,10>} finish {ambient 0.5  diffuse 0.2 specular 0.6 }}
+#declare T_ecran         = texture { pigment { image_map { png "Fond_ecran.png"interpolate 2 once} scale <58,33,10>} finish {ambient 0.8  diffuse 0.2 specular 0.6 }}
 //pied de micro 
 #declare T_Pied_micro = texture { pigment { rgb <1,1,1>*0.1 } finish { diffuse 0.2 specular 0.8}}                                                                 
 //micro                                                                                                          
@@ -94,7 +94,6 @@
                          specular 0.8 roughness 0.0003 phong 1 phong_size 400}
                } 
  
-
 //bongos..
 #declare T_Wood = texture {  
     average
@@ -105,6 +104,7 @@
     } 
 
 #declare T_leatherskin = texture { pigment{ color rgb<1,1,1>*0.8}  normal { ripples 0.2 sine_wave  frequency 20 scale 1.0  translate<0,0.5,0> } finish { diffuse 0.9 specular 0.3 }   }  
-
-
+//tambourin
 #declare T_brass = texture{ Spun_Brass  finish {phong 1.2 diffuse 0.9 specular  4.5 }  scale 0.5 translate<0,1,0> }  
+//tableau blanc
+#declare T_Whiteboard = texture { pigment { image_map { png "T_Whiteboard.png"interpolate 2 once} scale <7,4,1>} finish {ambient 0.02  diffuse 0.8 specular  1 }}
