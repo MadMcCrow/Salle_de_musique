@@ -131,7 +131,7 @@ global_settings{ assumed_gamma 1.0 }
 #declare Window_glass = object { box { <0,1,0> <W_width,W_height-1, W_Glass_thickness>}translate <0,0,+W_thickness/2>  }
 #declare Window = object { union { 
                                     object{ Window_border texture  {T_Plastic_BLANC} }
-                                    //object{ Window_glass  texture { T_Glass }       }
+                                    object{ Window_glass  texture { T_Glass }       }
                                  }
                          }
 // Salle complete ----------------------------------------------------------------------------------------------------------------------------------------------                
@@ -157,12 +157,12 @@ angle 70
 }
 
 // sun ---------------------------------------------------------------------
-light_source{< 400, 750, 2000>  color White*1.2}   // keep sun below the clouds! 
+light_source{< 400, 750, 2000>  color White*1.5}   // keep sun below the clouds! 
 // sky ---------------------------------------------------------------------
  // the dark blue
 plane{ <0,1,0>,1 hollow  
-       texture{ pigment { color rgb <0.20, 0.20, 1.0> }
-                finish  { ambient 0.25 diffuse 0 } 
+       texture{ pigment { color rgb <0.50, 0.50, 1.0> }
+                finish  { ambient 0.65 diffuse 0 } 
               }      
        scale 10000}
  // the clouds 
@@ -172,7 +172,7 @@ plane{<0,1,0>,1 hollow
                                     [0.6 rgb <1.0,1.0,1.0>     ]
                                     [1.0 rgb <0.5,0.5,0.5>     ]}
                        }
-               finish { ambient 0.25 diffuse 0} 
+               finish { ambient 0.30 diffuse 0} 
               }      
        scale 800}
 // fog in the far -----------------------------------------------------------
@@ -184,7 +184,10 @@ fog{ fog_type   2 // ground fog
      turbulence 0.8
    }
 //interior light   
-light_source {<500,390,500>  0.80 media_interaction off }
+light_source {<500,390,500>  color White*0.5 media_interaction off fade_distance 800  fade_power 2 }
+light_source {<50,300,50>    color White*0.1 media_interaction off fade_distance 1000 fade_power 3 }
+
+
 //----------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------   MESHS     -----------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------  
@@ -310,12 +313,12 @@ object { Rideau3             rotate <0,10,0>                       translate <10
 object { Whiteboard          rotate <0,90,0>                       translate <1100,0,550>   }
 
  box{ <0,0,0>, <1200, 500, 1200>
-      pigment { rgbt <0.1,0.1,0.1,1> } 
+      pigment { rgbft <0.1,0.1,0.1,0.2,1> } 
       hollow
       interior{
         media{
-          scattering { 1, 0.005 extinction 0.13 }
-          samples 100, 500
+          scattering { 1, 0.005 extinction 0.15 }
+          samples 100, 300
         } 
       } 
  } 
