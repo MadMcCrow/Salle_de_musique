@@ -1,0 +1,20 @@
+DIFFERENCE PHOTO-RENDU
+
+- Le meuble TV avec les enceintes n'est pas présent, les enceintes sont posées
+sur le piano
+- Quelques instruments ne sont plus dans le panier (percussions...)
+- La basse est devenu une guitare
+- Les fils ne sont pas sur le rendu (pour des raisons évidentes de complexités)
+- Pas de Tapis
+- La structure en pierre n'est pas dans le rendu
+- L'écran du retroprojecteur est remplacé par un tableau de salle de musique
+- Les ordis sont identiques
+- L'extérieur n'est pas surexposée
+- Certains rideaux ont été enlevés
+- Les textures sont très mates par rapport à la photo
+- Ajout d'un "fog" pour avoir un effet brouillard réaliste dans la salle
+- Pas de radiateurs
+- Ajout de casque sur certains fauteuils
+- Eclairage très contrasté
+
+
