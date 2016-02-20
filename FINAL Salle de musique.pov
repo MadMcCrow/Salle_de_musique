@@ -314,7 +314,7 @@ object { Whiteboard          rotate <0,90,0>                       translate <11
       hollow
       interior{
         media{
-          scattering { 1, 0.001 extinction 0.15 }
+          scattering { 1, 0.005 extinction 0.13 }
           samples 100, 500
         } 
       } 
